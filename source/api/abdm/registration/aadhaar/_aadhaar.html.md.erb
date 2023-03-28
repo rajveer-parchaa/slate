@@ -1,0 +1,478 @@
+# Registration through AADHAAR
+
+## 1. Send OTP to given aadhaar
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "aadhaar": "652565890385"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/abdm/registration/aadhaar/generateOtp',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0OTI1NTIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDk2MTUyLCJpYXQiOjE2Nzk0OTI1NTIsInZlcnNpb24iOjIsImp0aSI6ImU5ZWZjYzRlLTkzNjAtNDUxNC05ZjIwLTAxY2U0YTY5ZTI0NyIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.uDJv9MROqwEX7OnGb1rcQdkVxYlMmfaSmVTXm10iOb0CWrMmCWieOZ7VWD4QUry5KmC1mTBndS8LRxgoqdTMmyCepWIC7f5sv1lN92vyNNvuy8qwmnpBOOcD4VCUw-nTExnzkdNvesXzO-oPY-9zd9jK2TBZKgSFdouxol_n11SzHsl32I1fDf7PM3XsLDAotPU9L250HoQ3bdR1lB7b9ebcEaABLdz9qiXdMWpw3c4gA7eH3tbatLq6TcZ8KIevwCHfe66Po5coRFG9cH3CZU-RPXHxJi704jxB_fpKTnQLxDkpTfjzfGU_oBGaxiZT5HnxyE1Jy7adeza4Eynrww'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/abdm/registration/aadhaar/generateOtp' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0OTI1NTIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDk2MTUyLCJpYXQiOjE2Nzk0OTI1NTIsInZlcnNpb24iOjIsImp0aSI6ImU5ZWZjYzRlLTkzNjAtNDUxNC05ZjIwLTAxY2U0YTY5ZTI0NyIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.uDJv9MROqwEX7OnGb1rcQdkVxYlMmfaSmVTXm10iOb0CWrMmCWieOZ7VWD4QUry5KmC1mTBndS8LRxgoqdTMmyCepWIC7f5sv1lN92vyNNvuy8qwmnpBOOcD4VCUw-nTExnzkdNvesXzO-oPY-9zd9jK2TBZKgSFdouxol_n11SzHsl32I1fDf7PM3XsLDAotPU9L250HoQ3bdR1lB7b9ebcEaABLdz9qiXdMWpw3c4gA7eH3tbatLq6TcZ8KIevwCHfe66Po5coRFG9cH3CZU-RPXHxJi704jxB_fpKTnQLxDkpTfjzfGU_oBGaxiZT5HnxyE1Jy7adeza4Eynrww' \
+--data-raw '{
+  "aadhaar": "652565890385"
+}'
+```
+> Response
+
+```json
+{
+  "txnId": "35a8ea27-1252-4d3a-b568-4a634ffa5071"
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/api/abdm/registration/aadhaar/generateOtp |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+| aadhaar| String | 652565890385 |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+| txnId| String |35a8ea27-1252-4d3a-b568-4a634ffa5071|
+
+####Errors
+
+####Status Code: 405
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 405 |
+|message|String| Could not find registered mobile number to the given aadhaar|
+
+
+
+## 2. Verify OTP sent to AADHAAR
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "txnId": "35a8ea27-1252-4d3a-b568-4a634ffa5071",
+  "otp": "110220"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/abdm/registration/aadhaar/verifyOtp',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0OTI1NTIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDk2MTUyLCJpYXQiOjE2Nzk0OTI1NTIsInZlcnNpb24iOjIsImp0aSI6ImU5ZWZjYzRlLTkzNjAtNDUxNC05ZjIwLTAxY2U0YTY5ZTI0NyIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.uDJv9MROqwEX7OnGb1rcQdkVxYlMmfaSmVTXm10iOb0CWrMmCWieOZ7VWD4QUry5KmC1mTBndS8LRxgoqdTMmyCepWIC7f5sv1lN92vyNNvuy8qwmnpBOOcD4VCUw-nTExnzkdNvesXzO-oPY-9zd9jK2TBZKgSFdouxol_n11SzHsl32I1fDf7PM3XsLDAotPU9L250HoQ3bdR1lB7b9ebcEaABLdz9qiXdMWpw3c4gA7eH3tbatLq6TcZ8KIevwCHfe66Po5coRFG9cH3CZU-RPXHxJi704jxB_fpKTnQLxDkpTfjzfGU_oBGaxiZT5HnxyE1Jy7adeza4Eynrww'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/abdm/registration/aadhaar/verifyOtp' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0OTI1NTIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDk2MTUyLCJpYXQiOjE2Nzk0OTI1NTIsInZlcnNpb24iOjIsImp0aSI6ImU5ZWZjYzRlLTkzNjAtNDUxNC05ZjIwLTAxY2U0YTY5ZTI0NyIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.uDJv9MROqwEX7OnGb1rcQdkVxYlMmfaSmVTXm10iOb0CWrMmCWieOZ7VWD4QUry5KmC1mTBndS8LRxgoqdTMmyCepWIC7f5sv1lN92vyNNvuy8qwmnpBOOcD4VCUw-nTExnzkdNvesXzO-oPY-9zd9jK2TBZKgSFdouxol_n11SzHsl32I1fDf7PM3XsLDAotPU9L250HoQ3bdR1lB7b9ebcEaABLdz9qiXdMWpw3c4gA7eH3tbatLq6TcZ8KIevwCHfe66Po5coRFG9cH3CZU-RPXHxJi704jxB_fpKTnQLxDkpTfjzfGU_oBGaxiZT5HnxyE1Jy7adeza4Eynrww' \
+--data-raw '{
+  "txnId": "35a8ea27-1252-4d3a-b568-4a634ffa5071",
+  "otp": "110220"
+}'
+```
+> Response
+
+```json
+{
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL|  https://api.parchaa.com/api/abdm/registration/aadhaar/verifyOtp |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+| txnId|String| 35a8ea27-1252-4d3a-b568-4a634ffa5071 |
+| otp |String| 110220|
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+| txnId | String | a825f76b-0696-40f3-864c-5a3a5b389a83 |
+
+####Errors
+
+####Status Code:   422
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 422 |
+|message|String| OTP entered is incorrect|
+
+
+
+
+
+## 3. Send OTP to given mobile number
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83",
+  "mobile": "9377612136"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/abdm/registration/aadhaar/generateMobileOtp',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0OTI1NTIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDk2MTUyLCJpYXQiOjE2Nzk0OTI1NTIsInZlcnNpb24iOjIsImp0aSI6ImU5ZWZjYzRlLTkzNjAtNDUxNC05ZjIwLTAxY2U0YTY5ZTI0NyIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.uDJv9MROqwEX7OnGb1rcQdkVxYlMmfaSmVTXm10iOb0CWrMmCWieOZ7VWD4QUry5KmC1mTBndS8LRxgoqdTMmyCepWIC7f5sv1lN92vyNNvuy8qwmnpBOOcD4VCUw-nTExnzkdNvesXzO-oPY-9zd9jK2TBZKgSFdouxol_n11SzHsl32I1fDf7PM3XsLDAotPU9L250HoQ3bdR1lB7b9ebcEaABLdz9qiXdMWpw3c4gA7eH3tbatLq6TcZ8KIevwCHfe66Po5coRFG9cH3CZU-RPXHxJi704jxB_fpKTnQLxDkpTfjzfGU_oBGaxiZT5HnxyE1Jy7adeza4Eynrww'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/abdm/registration/aadhaar/generateMobileOtp' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0OTI1NTIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDk2MTUyLCJpYXQiOjE2Nzk0OTI1NTIsInZlcnNpb24iOjIsImp0aSI6ImU5ZWZjYzRlLTkzNjAtNDUxNC05ZjIwLTAxY2U0YTY5ZTI0NyIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.uDJv9MROqwEX7OnGb1rcQdkVxYlMmfaSmVTXm10iOb0CWrMmCWieOZ7VWD4QUry5KmC1mTBndS8LRxgoqdTMmyCepWIC7f5sv1lN92vyNNvuy8qwmnpBOOcD4VCUw-nTExnzkdNvesXzO-oPY-9zd9jK2TBZKgSFdouxol_n11SzHsl32I1fDf7PM3XsLDAotPU9L250HoQ3bdR1lB7b9ebcEaABLdz9qiXdMWpw3c4gA7eH3tbatLq6TcZ8KIevwCHfe66Po5coRFG9cH3CZU-RPXHxJi704jxB_fpKTnQLxDkpTfjzfGU_oBGaxiZT5HnxyE1Jy7adeza4Eynrww' \
+--data-raw '{
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83",
+  "mobile": "9377612136"
+}'
+```
+> Response
+
+```json
+{
+  "txnId": "35a8ea27-1252-4d3a-b568-4a634ffa5071"
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/api/abdm/registration/aadhaar/generateMobileOtp |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+| txnId|String|a825f76b-0696-40f3-864c-5a3a5b389a83|
+|mobile|String|9377612136 |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+| txnId | String | 35a8ea27-1252-4d3a-b568-4a634ffa5071 |
+
+####Errors
+
+
+####Status Code:  422
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 422 |
+|message|String| Mobile number may not register |
+
+
+
+
+## 4. Verify OTP sent to given mobile number
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "txnId": "35a8ea27-1252-4d3a-b568-4a634ffa5071",
+  "otp": "110220"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/abdm/registration/aadhaar/verifyMobileOtp',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0OTI1NTIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDk2MTUyLCJpYXQiOjE2Nzk0OTI1NTIsInZlcnNpb24iOjIsImp0aSI6ImU5ZWZjYzRlLTkzNjAtNDUxNC05ZjIwLTAxY2U0YTY5ZTI0NyIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.uDJv9MROqwEX7OnGb1rcQdkVxYlMmfaSmVTXm10iOb0CWrMmCWieOZ7VWD4QUry5KmC1mTBndS8LRxgoqdTMmyCepWIC7f5sv1lN92vyNNvuy8qwmnpBOOcD4VCUw-nTExnzkdNvesXzO-oPY-9zd9jK2TBZKgSFdouxol_n11SzHsl32I1fDf7PM3XsLDAotPU9L250HoQ3bdR1lB7b9ebcEaABLdz9qiXdMWpw3c4gA7eH3tbatLq6TcZ8KIevwCHfe66Po5coRFG9cH3CZU-RPXHxJi704jxB_fpKTnQLxDkpTfjzfGU_oBGaxiZT5HnxyE1Jy7adeza4Eynrww'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/abdm/registration/aadhaar/verifyMobileOtp' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0OTI1NTIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDk2MTUyLCJpYXQiOjE2Nzk0OTI1NTIsInZlcnNpb24iOjIsImp0aSI6ImU5ZWZjYzRlLTkzNjAtNDUxNC05ZjIwLTAxY2U0YTY5ZTI0NyIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.uDJv9MROqwEX7OnGb1rcQdkVxYlMmfaSmVTXm10iOb0CWrMmCWieOZ7VWD4QUry5KmC1mTBndS8LRxgoqdTMmyCepWIC7f5sv1lN92vyNNvuy8qwmnpBOOcD4VCUw-nTExnzkdNvesXzO-oPY-9zd9jK2TBZKgSFdouxol_n11SzHsl32I1fDf7PM3XsLDAotPU9L250HoQ3bdR1lB7b9ebcEaABLdz9qiXdMWpw3c4gA7eH3tbatLq6TcZ8KIevwCHfe66Po5coRFG9cH3CZU-RPXHxJi704jxB_fpKTnQLxDkpTfjzfGU_oBGaxiZT5HnxyE1Jy7adeza4Eynrww' \
+--data-raw '{
+  "txnId": "35a8ea27-1252-4d3a-b568-4a634ffa5071",
+  "otp": "110220"
+}'
+```
+> Response
+
+```json
+{
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/api/abdm/registration/aadhaar/verifyMobileOtp |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+| txnId | String | 35a8ea27-1252-4d3a-b568-4a634ffa5071 |
+| otp | String | 110220 |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+| txnId |String | a825f76b-0696-40f3-864c-5a3a5b389a83 |
+
+####Errors
+
+####Status Code: 422
+|Field |Type| Description|
+|------|----|------------|
+| statusCode | Integer | 422 |
+| message | String | OTP entered is incorrect |
+
+
+
+
+
+## 5.  Create Health ID
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83",
+  "healthId": "deepak.pant"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/abdm/registration/aadhaar/createHealthId',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0OTI1NTIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDk2MTUyLCJpYXQiOjE2Nzk0OTI1NTIsInZlcnNpb24iOjIsImp0aSI6ImU5ZWZjYzRlLTkzNjAtNDUxNC05ZjIwLTAxY2U0YTY5ZTI0NyIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.uDJv9MROqwEX7OnGb1rcQdkVxYlMmfaSmVTXm10iOb0CWrMmCWieOZ7VWD4QUry5KmC1mTBndS8LRxgoqdTMmyCepWIC7f5sv1lN92vyNNvuy8qwmnpBOOcD4VCUw-nTExnzkdNvesXzO-oPY-9zd9jK2TBZKgSFdouxol_n11SzHsl32I1fDf7PM3XsLDAotPU9L250HoQ3bdR1lB7b9ebcEaABLdz9qiXdMWpw3c4gA7eH3tbatLq6TcZ8KIevwCHfe66Po5coRFG9cH3CZU-RPXHxJi704jxB_fpKTnQLxDkpTfjzfGU_oBGaxiZT5HnxyE1Jy7adeza4Eynrww'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/abdm/registration/aadhaar/createHealthId' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0OTI1NTIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDk2MTUyLCJpYXQiOjE2Nzk0OTI1NTIsInZlcnNpb24iOjIsImp0aSI6ImU5ZWZjYzRlLTkzNjAtNDUxNC05ZjIwLTAxY2U0YTY5ZTI0NyIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.uDJv9MROqwEX7OnGb1rcQdkVxYlMmfaSmVTXm10iOb0CWrMmCWieOZ7VWD4QUry5KmC1mTBndS8LRxgoqdTMmyCepWIC7f5sv1lN92vyNNvuy8qwmnpBOOcD4VCUw-nTExnzkdNvesXzO-oPY-9zd9jK2TBZKgSFdouxol_n11SzHsl32I1fDf7PM3XsLDAotPU9L250HoQ3bdR1lB7b9ebcEaABLdz9qiXdMWpw3c4gA7eH3tbatLq6TcZ8KIevwCHfe66Po5coRFG9cH3CZU-RPXHxJi704jxB_fpKTnQLxDkpTfjzfGU_oBGaxiZT5HnxyE1Jy7adeza4Eynrww' \
+--data-raw '{
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83",
+  "healthId": "deepak.pant"
+}'
+```
+> Response
+
+```json
+{
+  "token": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJzaGl2YW0xNDE1Z2dnQHNieCIsImNsaWVudElkIjoiUEhSLVdFQiIsInN5c3RlbSI6IkFCSEEtQSIsInJlcXVlc3RlcklkIjoiUEhSLVdFQiIsImV4cCI6MTY3MzIwMjYwOCwiaWF0IjoxNjczMTk1NDA4LCJwaHJBZGRyZXNzIjoic2hpdmFtMTQxNWdnZ0BzYngifQ.KXDYpfM33GFA2kLVfTUsrARi-sIyGlHz2gvNlTt8WrfvMFuzkIy7jM4f7JC9NAI9Jc0YOcflD2l_qVGRE99XSsbYJAJvGy8-3STBfa0aIJygO2TmAGB_Q-TBgeHgLsJzDUii3xazJXO45J7ZA3_2edt8d6vOGjLb1yatcshd6BCJQvAb9U5-Wy44lwvOXJ_B9JKCSNH9XXqJaxXE4RC-lCRruHp1dfRbJfWjrLIeo_0Sp3V73ccsG0Xd65XNIm_gAgF9i_08LqH7wOF1CnCmhoF9mSdCHHO2Ol3i_kinp4KCYPrEc_R0grDOYQBib383CBZVqpCJfA40ZPRkk5_uwg",
+  "refreshToken": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJzaGl2YW0xNDE1Z2dnQHNieCIsImNsaWVudElkIjoiUEhSLVdFQiIsInN5c3RlbSI6IkFCSEEtQSIsInR5cCI6IlJlZnJlc2giLCJleHAiOjE2NzQ0OTE0MDgsImlhdCI6MTY3MzE5NTQwOH0.LAFDLosImyk5rAJYJlsbfYlxLtaHxqafVkS8VKJ5vrOLXdQi7iLrS9po4O-wc0ITsnWAkqzPrCQYYVVx-km8NPf9IWkRWmqmYEoc-42WNXMepYsSb1ZxFJYL5wgCCc_NZ5oETrg7Jz-WkRVQtsWnC__KlqJFzjZPWNB9jtzSkrkZUBuwPbXY65LiRZVyZSRJLWQv1D-TLsZhIHfDJmcEEh7IYTl3uSX5Pmi8dXO277QGw2VF0ObpIEPwis1jc5OnoLQOlcfFVLI8vvaDVngEizmxx2d5COjp1yFIBMSH7VhfzunPDmR2OFRpI5rwgmw7asGm9IY4eJozVS7cI2zk2A",
+  "healthIdNumber": "43-4221-5105-6749",
+  "name": null,
+  "gender": "M",
+  "yearOfBirth": "200",
+  "monthOfBirth": "6",
+  "dayOfBirth": "2",
+  "firstName": "Hi",
+  "middleName": null,
+  "stateCode": "27",
+  "districtCode": "401",
+  "stateName": "MAHARASHTRA",
+  "districtName": "Pune",
+  "email": null,
+  "kycPhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
+  "profilePhoto": null,
+  "mobile": "9545812125",
+  "authMethods": [
+    "DEMOGRAPHICS",
+    "AADHAAR_BIO",
+    "AADHAAR_OTP",
+    "MOBILE_OTP"
+  ],
+  "pincode": "395002",
+  "tags": "null",
+  "new": true
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/api/abdm/registration/aadhaar/createHealthId |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+| txnId | String | a825f76b-0696-40f3-864c-5a3a5b389a83 |
+| healthId | String | deepak.pant |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+| token | String | eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJzaGl2YW0xNDE1Z2dnQHNieCIsImNsaWVudElkIjoiUEhSLVdFQiIsInN5c|
+|refreshToken | String | eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJzaGl2YW0xNDE1Z2dnQHNieCIsImNsaWVudElkIjoiUEhSLVdFQiI|
+|healthIdNumber | String | 43-4221-5105-6749|
+|name | String | null|
+|gender | String | M|
+|yearOfBirth | String | 200|
+|monthOfBirth | String | 6|
+|dayOfBirth | String | 2|
+|firstName | String | Hi|
+|middleName | String | null|
+|stateCode | String | 27|
+|districtCode | String | 401|
+|stateName | String | MAHARASHTRA|
+|districtName | String | Pune|
+|email  | String | null |
+|kycPhoto  | String |  /9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLi|
+|profilePhoto | String | null |
+|mobile | String | 9545812125 |
+|authMethods | String | ["DEMOGRAPHICS", "AADHAAR_BIO", "AADHAAR_OTP", "MOBILE_OTP"]|
+|pincode | String | 395002 |
+|tags  | String |  null|
+|new | boolean | true |
+
+####Errors
+
+####Status Code:  422
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 422 |
+|message | String | 	Could not find Account for given Aadhaar/Mobile|

@@ -1,0 +1,109 @@
+# Authentication
+
+
+
+## Generate Token
+
+> Request
+
+```javascript
+var axios = require('axios');
+var qs = require('qs');
+var data = qs.stringify({
+  'grant_type': 'client_credentials',
+  'client_id': '2kva7msbdrd8nc4cjkvc8vc841',
+  'client_secret': 'j8ng0v0h7fms1kocibt9bpvmu4lrqgiu6084di2c0jm5p620ds2'
+});
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/token',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+```cURL
+curl --location --request POST 'https://api.parchaa.com/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_id=2kva7msbdrd8nc4cjkvc8vc841' \
+--data-urlencode 'client_secret=j8ng0v0h7fms1kocibt9bpvmu4lrqgiu6084di2c0jm5p620ds2'
+```
+> Response
+
+```json
+{
+    "access_token": "eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZy
+    I6IlJTMjU2In0.eyJzdWIiOiIya3ZhN21zYmRyZDhuYzRjamt2Yzh2Yzg0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb
+    3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0MDE0MDksImlzcyI6Imh0dHBzOlwvXC9jb2du
+    aXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDA1MDA5
+    LCJpYXQiOjE2Nzk0MDE0MDksInZlcnNpb24iOjIsImp0aSI6ImEzODFjNzE0LTE3ZTMtNDlmZi04YjljLWU5MTcxOTAzNDE5M
+    SIsImNsaWVudF9pZCI6IjJrdmE3bXNiZHJkOG5jNGNqa3ZjOHZjODQxIn0.b0DirG5DMDP0HLgtz99vQdU9j0CPk8WB9FljjcI6
+    6IAZRu-vEd1h8GE0DJ3jd1CSMxNQYnB4gVASzrRi0-ipNcso1hO3pfSkclGYEtaQ-M9uakeWkKkHgOvl91uZLAERbhnj65Uk8wfq
+    7A-oeG0T_dM9m7Fk12NxO1o9tZg4s8ibK1KFW7YZTIuFeXBzzoKYKIIyy1bdP-RI_5eP4M6giuAg30PJjEw-bp7h6sIQQOUbd2Do6p
+    gMIjiKlLPXBJD_rFOKx1EnULPWgHyWGgGfpuscEBKzv8YBCzMbXNyN4BWS3nW9B63GXBfB0ByuijyIuJDjO5wxanOfHNkjm3seCQ",
+    "expires_in": 3600,
+    "token_type": "Bearer"
+}
+```
+
+
+All the parchaa api's are secured by the client_credentials auth method and for getting
+these client credentials you need to contact parchaa administrators. after getting these
+credentials you have to make a call which returns access_token which is bearer token and
+this bearer token is used for al the API's of parchaa.
+
+
+### Request Information
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/token |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/x-www-form-urlencoded |
+
+This header is must to pass while requesting for token
+
+### Request Parameters in Body
+
+We need to pass these parameters in request body as x-www-form-urlencoded
+
+|Key|Value|
+|----------|--------|
+|grant_type*|client_credentials|
+|client_id*|Your Client ID|
+|client_secret*|Your Client Secret|
+|scope| Scope|
+
+Note: grant type will be "client_credentials" which will be constant and replace
+the client_id and client_secret values with the one which are being provided by Parchaa.
+And * represent Required field
+
+scope
+Can be a combination of any custom scopes associated with an app client.
+ Any scope that you request must be activated for the app client, or Amazon
+ Cognito will ignore it. If the client doesn't request any scopes, the authentication
+ server uses all custom scopes associated with the client.
+
+Optional. Only used if the grant_type is client_credentials.
+
+### Response
+
+|Field | Description|
+|------|------------|
+|access_token|eyJra1example|
+|token_type|Bearer|
+|expires_in|3600|
+

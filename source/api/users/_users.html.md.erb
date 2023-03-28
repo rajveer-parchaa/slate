@@ -1,0 +1,708 @@
+# Users
+
+## Creates user in parchaa database
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "fullName": "Shivam Pachchigar",
+  "gender": "M",
+  "mobile": "9377612136",
+  "address": "C-7, Tirupati Nagar",
+  "pincode": "395007",
+  "state": "Gujarat",
+  "dayOfBirth": "14",
+  "monthOfBirth": "11",
+  "yearOfBirth": "2002",
+  "healthIds": [
+    "shivam1415@sbx"
+  ]
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/users/create',
+  headers: {
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0NjczNTYsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDcwOTU2LCJpYXQiOjE2Nzk0NjczNTYsInZlcnNpb24iOjIsImp0aSI6IjdkNWM1MmI3LWMzMzktNDA1Mi1iYmJmLWI3YzU5OTI0ZmI1ZSIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.DrP3CfOBYwDtprFA0fxcz_8T9olsSJazoGm7PSUTP1e14wuK7333fibhG2Wwv7S1Wq2z4NXkPmrMDjpsEC2gRiYbPawcqvNeTqk0S_hIG9tFq0BtVFHfZpSAfflZ-Y5xMsQ49pP6f2V5mlasw1j15ffTSAvoB3EF9XJYeAjIggmw0dYwaNqHFPWJkb16mGb-D_cyWp9j9Kg2KclEAkBPDtDpA6yReCukn_5NlikcotqAdn8PZVEVCFjLUpCw3BaRyg0-wzvGp5noQdPoXF0TnO1mFy0LvEd7Dxr5M3EsM-iZu38x2j93BAlrAMb1FsLfmCcYcRASiDHCg47o22iOag',
+    'Content-Type': 'application/json',
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/users/create' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0NjczNTYsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDcwOTU2LCJpYXQiOjE2Nzk0NjczNTYsInZlcnNpb24iOjIsImp0aSI6IjdkNWM1MmI3LWMzMzktNDA1Mi1iYmJmLWI3YzU5OTI0ZmI1ZSIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.DrP3CfOBYwDtprFA0fxcz_8T9olsSJazoGm7PSUTP1e14wuK7333fibhG2Wwv7S1Wq2z4NXkPmrMDjpsEC2gRiYbPawcqvNeTqk0S_hIG9tFq0BtVFHfZpSAfflZ-Y5xMsQ49pP6f2V5mlasw1j15ffTSAvoB3EF9XJYeAjIggmw0dYwaNqHFPWJkb16mGb-D_cyWp9j9Kg2KclEAkBPDtDpA6yReCukn_5NlikcotqAdn8PZVEVCFjLUpCw3BaRyg0-wzvGp5noQdPoXF0TnO1mFy0LvEd7Dxr5M3EsM-iZu38x2j93BAlrAMb1FsLfmCcYcRASiDHCg47o22iOag' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "fullName": "Shivam Pachchigar",
+  "gender": "M",
+  "mobile": "9377612136",
+  "address": "C-7, Tirupati Nagar",
+  "pincode": "395007",
+  "state": "Gujarat",
+  "dayOfBirth": "14",
+  "monthOfBirth": "11",
+  "yearOfBirth": "2002",
+  "healthIds": [
+    "shivam1415@sbx"
+  ]
+}'
+```
+> Response
+
+```json
+{
+    "fullName": "Shivam Pachchigar",
+    "gender": "M",
+    "mobile": "9377612136",
+    "address": "C-7, Tirupati Nagar",
+    "pincode": "395007",
+    "state": "Gujarat",
+    "dayOfBirth": "14",
+    "monthOfBirth": "11",
+    "yearOfBirth": "2002",
+    "healthIds": [
+        "shivam1415@sbx"
+    ],
+    "abhaNumber": null,
+    "aadhaarNumber": null,
+    "fhirId": null,
+    "id": 1
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/api/users/create |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+| fullName|String|Shivam Pachchigar|
+|gender|String|M|
+|mobile|String|9377612136|
+|address|String|C-7, Tirupati Nagar|
+|pincode|String|395007|
+|state|String|Gujarat|
+|dayOfBirth|String|14|
+|monthOfBirth|String|11|
+|yearOfBirth|String|2002|
+|healthIds| Array|["shivam1415@sbx"]|
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description/ value|
+|------|----|------------|
+| fullName|String|Shivam Pachchigar|
+|gender|String|M|
+|mobile|String|9377612136|
+|address|String|C-7, Tirupati Nagar|
+|pincode|String|395007|
+|state|String|Gujarat|
+|dayOfBirth|String|14|
+|monthOfBirth|String|11|
+|yearOfBirth|String|2002|
+|healthIds|Array|[ "shivam1415@sbx"]|
+|abhaNumber|String|null|
+|aadhaarNumber|String|null|
+|fhirId |Integer| null|
+|id|Integer|1|
+
+####Errors
+
+If you encounters an any error please refer Error section.
+
+
+
+
+## Update user in parchaa database
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "id": 1,
+  "fullName": "Shivam",
+  "gender": "M",
+  "mobile": "9377612136",
+  "address": "C-7, Tirupati Nagar",
+  "pincode": "395007",
+  "state": "Gujarat",
+  "dayOfBirth": "14",
+  "monthOfBirth": "11",
+  "yearOfBirth": "2002",
+  "healthIds": [
+    "shivam1415@sbx"
+  ]
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/users/update',
+  headers: {
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0Nzc4OTAsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDgxNDkwLCJpYXQiOjE2Nzk0Nzc4OTAsInZlcnNpb24iOjIsImp0aSI6ImViYTIyZDBlLThlODEtNDc5MS1iMGFjLWY0ZGRlNGU4YTg1YiIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.hzVv96wa-DXFqGFYB1xvtoUyyk9Aa_l4TpE41BQxcVR3icpUN_m_lJy2mTBMfoccrtWthpSZUmmqksRqdbzCGiMluGTpZsvhJgmgFn27w9NnlDsZs8JtqjqBddIikfbv7HLB_MIkTQT_gMVYseBy5CnJjjTKa3Jl2uWz7DNXaAbg07Lq76h-LrsJi3ofZ8s1sxYq-QSdJ0k06HTwgO4OIfnTDUgaPIDUuKSV6So28HZTFpIANoSH_aTtRsuLus12t13TDunhdJOEA1b7T6ID0hT3IxY6TMbD3NgVvbEeMP3PeTC88xe5l3KLEFlV8Ft7f2kcA-YiqwsXVzyFFb0bzg',
+    'Content-Type': 'application/json',
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/users/update' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0Nzc4OTAsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDgxNDkwLCJpYXQiOjE2Nzk0Nzc4OTAsInZlcnNpb24iOjIsImp0aSI6ImViYTIyZDBlLThlODEtNDc5MS1iMGFjLWY0ZGRlNGU4YTg1YiIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.hzVv96wa-DXFqGFYB1xvtoUyyk9Aa_l4TpE41BQxcVR3icpUN_m_lJy2mTBMfoccrtWthpSZUmmqksRqdbzCGiMluGTpZsvhJgmgFn27w9NnlDsZs8JtqjqBddIikfbv7HLB_MIkTQT_gMVYseBy5CnJjjTKa3Jl2uWz7DNXaAbg07Lq76h-LrsJi3ofZ8s1sxYq-QSdJ0k06HTwgO4OIfnTDUgaPIDUuKSV6So28HZTFpIANoSH_aTtRsuLus12t13TDunhdJOEA1b7T6ID0hT3IxY6TMbD3NgVvbEeMP3PeTC88xe5l3KLEFlV8Ft7f2kcA-YiqwsXVzyFFb0bzg' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "id":1,
+  "fullName": "Shivam",
+  "gender": "M",
+  "mobile": "9377612136",
+  "address": "C-7, Tirupati Nagar",
+  "pincode": "395007",
+  "state": "Gujarat",
+  "dayOfBirth": "14",
+  "monthOfBirth": "11",
+  "yearOfBirth": "2002",
+  "healthIds": [
+    "shivam1415@sbx"
+  ]
+}'
+```
+> Response
+
+```json
+{
+    "fullName": "Shivam",
+    "gender": "M",
+    "mobile": "9377612136",
+    "address": "C-7, Tirupati Nagar",
+    "pincode": "395007",
+    "state": "Gujarat",
+    "dayOfBirth": "14",
+    "monthOfBirth": "11",
+    "yearOfBirth": "2002",
+    "healthIds": [
+        "shivam1415@sbx"
+    ],
+    "id": 1,
+    "abhaNumber": null,
+    "aadhaarNumber": null,
+    "fhirId": null
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/api/users/update |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+|id |Integer| 1|
+|fullName|String|Shivam|
+|gender|String|M|
+|mobile|String|9377612136|
+|address|String|C-7, Tirupati Nagar|
+|pincode|String|395007|
+|state|String|Gujarat|
+|dayOfBirth|String|14|
+|monthOfBirth|String|11|
+|yearOfBirth|String|2002|
+|healthIds|Array|["shivam1415@sbx"]|
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description/ value|
+|------|----|------------|
+| fullName|String|Shivam|
+|gender|String|M|
+|mobile|String|9377612136|
+|address|String|C-7, Tirupati Nagar|
+|pincode|String|395007|
+|state|String|Gujarat|
+|dayOfBirth|String|14|
+|monthOfBirth|String|11|
+|yearOfBirth|String|2002|
+|healthIds|Array|[ "shivam1415@sbx"]|
+|abhaNumber|String|null|
+|aadhaarNumber|String|null|
+|fhirId |Integer| null|
+|id|Integer|1|
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|message|Array|["error message will be here"]|
+|error|String| Bad Request|
+
+
+
+
+
+## Find user by mobile number in parchaa database
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "mobile": "9377612136"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/users/findByMobile',
+  headers: {
+    'accept': '*/*',
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0Nzc4OTAsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDgxNDkwLCJpYXQiOjE2Nzk0Nzc4OTAsInZlcnNpb24iOjIsImp0aSI6ImViYTIyZDBlLThlODEtNDc5MS1iMGFjLWY0ZGRlNGU4YTg1YiIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.hzVv96wa-DXFqGFYB1xvtoUyyk9Aa_l4TpE41BQxcVR3icpUN_m_lJy2mTBMfoccrtWthpSZUmmqksRqdbzCGiMluGTpZsvhJgmgFn27w9NnlDsZs8JtqjqBddIikfbv7HLB_MIkTQT_gMVYseBy5CnJjjTKa3Jl2uWz7DNXaAbg07Lq76h-LrsJi3ofZ8s1sxYq-QSdJ0k06HTwgO4OIfnTDUgaPIDUuKSV6So28HZTFpIANoSH_aTtRsuLus12t13TDunhdJOEA1b7T6ID0hT3IxY6TMbD3NgVvbEeMP3PeTC88xe5l3KLEFlV8Ft7f2kcA-YiqwsXVzyFFb0bzg',
+    'Cookie': 'XSRF-TOKEN=bc2395db-6998-4679-8e5a-0760b2e0ac2b'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/users/findByMobile' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0Nzc4OTAsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDgxNDkwLCJpYXQiOjE2Nzk0Nzc4OTAsInZlcnNpb24iOjIsImp0aSI6ImViYTIyZDBlLThlODEtNDc5MS1iMGFjLWY0ZGRlNGU4YTg1YiIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.hzVv96wa-DXFqGFYB1xvtoUyyk9Aa_l4TpE41BQxcVR3icpUN_m_lJy2mTBMfoccrtWthpSZUmmqksRqdbzCGiMluGTpZsvhJgmgFn27w9NnlDsZs8JtqjqBddIikfbv7HLB_MIkTQT_gMVYseBy5CnJjjTKa3Jl2uWz7DNXaAbg07Lq76h-LrsJi3ofZ8s1sxYq-QSdJ0k06HTwgO4OIfnTDUgaPIDUuKSV6So28HZTFpIANoSH_aTtRsuLus12t13TDunhdJOEA1b7T6ID0hT3IxY6TMbD3NgVvbEeMP3PeTC88xe5l3KLEFlV8Ft7f2kcA-YiqwsXVzyFFb0bzg' \
+--data-raw '{
+  "mobile": "9377612136"
+}'
+```
+> Response
+
+```json
+{
+    "id": 1,
+    "fullName": "Shivam",
+    "gender": "M",
+    "mobile": "9377612136",
+    "address": "C-7, Tirupati Nagar",
+    "pincode": "395007",
+    "state": "Gujarat",
+    "dayOfBirth": "14",
+    "monthOfBirth": "11",
+    "yearOfBirth": "2002",
+    "abhaNumber": null,
+    "aadhaarNumber": null,
+    "healthIds": [
+        "shivam1415@sbx"
+    ],
+    "fhirId": null
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/api/users/findByMobile |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+| mobile | String | 9377612136 |
+
+Enter the mobile number for which you want to search in database
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description/ value|
+|------|----|------------|
+|fullName|String|Shivam|
+|gender|String|M|
+|mobile|String|9377612136|
+|address|String|C-7, Tirupati Nagar|
+|pincode|String|395007|
+|state|String|Gujarat|
+|dayOfBirth|String|14|
+|monthOfBirth|String|11|
+|yearOfBirth|String|2002|
+|healthIds|Array|[ "shivam1415@sbx"]|
+|abhaNumber|String|null|
+|aadhaarNumber|String|null|
+|fhirId |Integer| null|
+|id|Integer|1|
+
+
+####Errors
+
+For error's please refer the Error's section of this API reference
+
+
+
+
+## find user by ID in parchaa database
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "id": 1
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/users/findById',
+  headers: {
+    'accept': '*/*',
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0Nzc4OTAsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDgxNDkwLCJpYXQiOjE2Nzk0Nzc4OTAsInZlcnNpb24iOjIsImp0aSI6ImViYTIyZDBlLThlODEtNDc5MS1iMGFjLWY0ZGRlNGU4YTg1YiIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.hzVv96wa-DXFqGFYB1xvtoUyyk9Aa_l4TpE41BQxcVR3icpUN_m_lJy2mTBMfoccrtWthpSZUmmqksRqdbzCGiMluGTpZsvhJgmgFn27w9NnlDsZs8JtqjqBddIikfbv7HLB_MIkTQT_gMVYseBy5CnJjjTKa3Jl2uWz7DNXaAbg07Lq76h-LrsJi3ofZ8s1sxYq-QSdJ0k06HTwgO4OIfnTDUgaPIDUuKSV6So28HZTFpIANoSH_aTtRsuLus12t13TDunhdJOEA1b7T6ID0hT3IxY6TMbD3NgVvbEeMP3PeTC88xe5l3KLEFlV8Ft7f2kcA-YiqwsXVzyFFb0bzg',
+    'Cookie': 'XSRF-TOKEN=bc2395db-6998-4679-8e5a-0760b2e0ac2b'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/users/findById' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0Nzc4OTAsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDgxNDkwLCJpYXQiOjE2Nzk0Nzc4OTAsInZlcnNpb24iOjIsImp0aSI6ImViYTIyZDBlLThlODEtNDc5MS1iMGFjLWY0ZGRlNGU4YTg1YiIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.hzVv96wa-DXFqGFYB1xvtoUyyk9Aa_l4TpE41BQxcVR3icpUN_m_lJy2mTBMfoccrtWthpSZUmmqksRqdbzCGiMluGTpZsvhJgmgFn27w9NnlDsZs8JtqjqBddIikfbv7HLB_MIkTQT_gMVYseBy5CnJjjTKa3Jl2uWz7DNXaAbg07Lq76h-LrsJi3ofZ8s1sxYq-QSdJ0k06HTwgO4OIfnTDUgaPIDUuKSV6So28HZTFpIANoSH_aTtRsuLus12t13TDunhdJOEA1b7T6ID0hT3IxY6TMbD3NgVvbEeMP3PeTC88xe5l3KLEFlV8Ft7f2kcA-YiqwsXVzyFFb0bzg' \
+--header 'Cookie: XSRF-TOKEN=bc2395db-6998-4679-8e5a-0760b2e0ac2b' \
+--data-raw '{
+  "id": 1
+}'
+```
+> Response
+
+```json
+{
+    "id": 1,
+    "fullName": "Shivam",
+    "gender": "M",
+    "mobile": "9377612136",
+    "address": "C-7, Tirupati Nagar",
+    "pincode": "395007",
+    "state": "Gujarat",
+    "dayOfBirth": "14",
+    "monthOfBirth": "11",
+    "yearOfBirth": "2002",
+    "abhaNumber": null,
+    "aadhaarNumber": null,
+    "healthIds": [
+        "shivam1415@sbx"
+    ],
+    "fhirId": null
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/api/users/findById |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+| id | Integer | 1 |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description/ value|
+|------|----|------------|
+|fullName|String|Shivam|
+|gender|String|M|
+|mobile|String|9377612136|
+|address|String|C-7, Tirupati Nagar|
+|pincode|String|395007|
+|state|String|Gujarat|
+|dayOfBirth|String|14|
+|monthOfBirth|String|11|
+|yearOfBirth|String|2002|
+|healthIds|Array|[ "shivam1415@sbx"]|
+|abhaNumber|String|null|
+|aadhaarNumber|String|null|
+|fhirId |Integer| null|
+|id|Integer|1|
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode |Integer| 400|
+|message|String|Unexpected token id in JSON at position 10|
+|error|String| Bad Request|
+
+
+
+## delete user by ID in parchaa database
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "id": 1
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/users/delete',
+  headers: {
+    'accept': '*/*',
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0ODIyNzksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDg1ODc5LCJpYXQiOjE2Nzk0ODIyNzksInZlcnNpb24iOjIsImp0aSI6IjE2YTZkZmM1LTBjNDgtNDQ4ZC04ZDg2LTk4YzU1NmFmYzNmZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.JrqSc757L9upYkT1FLKTGlXsCK-ydM71aBODfrYI31nkQ9Y67zv5Q_PsMkXrOOErMXWqFBAcAl9RQ7zJRnSnWcMnsc1Y1RZnpJuug1jhohaqAAIIOPVp0ZSOABjw6zrw7YZB6FfRbuoGblE0rDOZARa8G0YdKnXOhASDbaVKJr--meTFhAyO5Q1N4fMqJjct5VRhgttsUINvoBpfMxHbWo8AjD9PO4DLvaMbIhNM3wAWHL3wOVXThqFVZIVBcmU4CmMyApm3zpVk_41EYrPRzdZ85WFj54qhTKhBNPwC9oOEuLMTrTGDgl-KW3uUUb_ZeTPyPYC0AapNtaLHqY6X4Q',
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/users/delete' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0ODIyNzksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDg1ODc5LCJpYXQiOjE2Nzk0ODIyNzksInZlcnNpb24iOjIsImp0aSI6IjE2YTZkZmM1LTBjNDgtNDQ4ZC04ZDg2LTk4YzU1NmFmYzNmZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.JrqSc757L9upYkT1FLKTGlXsCK-ydM71aBODfrYI31nkQ9Y67zv5Q_PsMkXrOOErMXWqFBAcAl9RQ7zJRnSnWcMnsc1Y1RZnpJuug1jhohaqAAIIOPVp0ZSOABjw6zrw7YZB6FfRbuoGblE0rDOZARa8G0YdKnXOhASDbaVKJr--meTFhAyO5Q1N4fMqJjct5VRhgttsUINvoBpfMxHbWo8AjD9PO4DLvaMbIhNM3wAWHL3wOVXThqFVZIVBcmU4CmMyApm3zpVk_41EYrPRzdZ85WFj54qhTKhBNPwC9oOEuLMTrTGDgl-KW3uUUb_ZeTPyPYC0AapNtaLHqY6X4Q' \
+--data-raw '{
+  "id": 1
+}'
+```
+> Response
+
+```json
+{
+    "raw": [],
+    "affected": 1
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/api/users/delete |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description/ value|
+|------|----|------------|
+| id | Integer | 1 |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+| raw | Array | [] |
+| affected | Integer | 1 |
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|message|Array| ["id must be a number conforming to the specified constraints"]|
+|error | String | bad request|
+
+
+
+## Find all users in parchaa database
+
+
+
+```javascript
+var axios = require('axios');
+
+var config = {
+  method: 'get',
+  url: 'https://api.parchaa.com/api/users/findAll',
+  headers: {
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0Nzc4OTAsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDgxNDkwLCJpYXQiOjE2Nzk0Nzc4OTAsInZlcnNpb24iOjIsImp0aSI6ImViYTIyZDBlLThlODEtNDc5MS1iMGFjLWY0ZGRlNGU4YTg1YiIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.hzVv96wa-DXFqGFYB1xvtoUyyk9Aa_l4TpE41BQxcVR3icpUN_m_lJy2mTBMfoccrtWthpSZUmmqksRqdbzCGiMluGTpZsvhJgmgFn27w9NnlDsZs8JtqjqBddIikfbv7HLB_MIkTQT_gMVYseBy5CnJjjTKa3Jl2uWz7DNXaAbg07Lq76h-LrsJi3ofZ8s1sxYq-QSdJ0k06HTwgO4OIfnTDUgaPIDUuKSV6So28HZTFpIANoSH_aTtRsuLus12t13TDunhdJOEA1b7T6ID0hT3IxY6TMbD3NgVvbEeMP3PeTC88xe5l3KLEFlV8Ft7f2kcA-YiqwsXVzyFFb0bzg',
+  }
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
+
+```cURL
+curl --location --request GET 'https://api.parchaa.com/api/users/findAll' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0Nzc4OTAsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDgxNDkwLCJpYXQiOjE2Nzk0Nzc4OTAsInZlcnNpb24iOjIsImp0aSI6ImViYTIyZDBlLThlODEtNDc5MS1iMGFjLWY0ZGRlNGU4YTg1YiIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.hzVv96wa-DXFqGFYB1xvtoUyyk9Aa_l4TpE41BQxcVR3icpUN_m_lJy2mTBMfoccrtWthpSZUmmqksRqdbzCGiMluGTpZsvhJgmgFn27w9NnlDsZs8JtqjqBddIikfbv7HLB_MIkTQT_gMVYseBy5CnJjjTKa3Jl2uWz7DNXaAbg07Lq76h-LrsJi3ofZ8s1sxYq-QSdJ0k06HTwgO4OIfnTDUgaPIDUuKSV6So28HZTFpIANoSH_aTtRsuLus12t13TDunhdJOEA1b7T6ID0hT3IxY6TMbD3NgVvbEeMP3PeTC88xe5l3KLEFlV8Ft7f2kcA-YiqwsXVzyFFb0bzg' \
+```
+> Response
+
+```json
+[
+    {
+        "id": 1,
+        "fullName": "Shivam",
+        "gender": "M",
+        "mobile": "9377612136",
+        "address": "C-7, Tirupati Nagar",
+        "pincode": "395007",
+        "state": "Gujarat",
+        "dayOfBirth": "14",
+        "monthOfBirth": "11",
+        "yearOfBirth": "2002",
+        "abhaNumber": null,
+        "aadhaarNumber": null,
+        "healthIds": [
+            "shivam1415@sbx"
+        ],
+        "fhirId": null
+    }
+]
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `GET`|
+|URL| https://api.parchaa.com/api/users/findAll |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+
+No parameters are required for this request
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+
+This request will return the array of user object and the user object is defined below
+
+USER object
+
+|Field |Type| Description/ value|
+|------|----|------------|
+|fullName|String|Shivam|
+|gender|String|M|
+|mobile|String|9377612136|
+|address|String|C-7, Tirupati Nagar|
+|pincode|String|395007|
+|state|String|Gujarat|
+|dayOfBirth|String|14|
+|monthOfBirth|String|11|
+|yearOfBirth|String|2002|
+|healthIds|Array|[ "shivam1415@sbx"]|
+|abhaNumber|String|null|
+|aadhaarNumber|String|null|
+|fhirId |Integer| null|
+|id|Integer|1|
+
+
+

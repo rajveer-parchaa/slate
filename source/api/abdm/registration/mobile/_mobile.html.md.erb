@@ -1,0 +1,414 @@
+# Registration through mobile
+
+## Send OTP to given Mobile number
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "mobile": "9521752170"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/abdm/registration/mobile/generateOtp',
+  headers: {
+    'accept': '*/*',
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2NzkzODk5MzEsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5MzkzNTMxLCJpYXQiOjE2NzkzODk5MzEsInZlcnNpb24iOjIsImp0aSI6Ijk2NmE5MDY3LTEwY2ItNDAxNS04OTBhLTM3MjQzOTk4MjAzZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.axFtyv5B3BIO3fxEa5jdg5xjvQPyA1WByXhY8co4pXBJ6FG4kh5mMyOkSC5BxNmVfuxu_brflZ6CGq9qIj78rut2xgAfkp5K_GwDZYnHHPdUVXWFY69IinplmE3unl_XGxtPWZt4ox_POzhP3PPMLMJanBEi4mEByDgLvyCv4WF2eThUfhlj6QAlDIJ0K0ivhxH3GyAmft_PdqxpDvm_qIwDZ4D6XT3BUQJit7bdtVXZkkhcvDUoAH2BmwHTZtv2F2ipvYgfrpIp3e520bJw1Stcgj1QB3K7HhR01KVtRN3E-it-Y1onF_BHAfl4KhwM6m4do1IJVFqFBCh96Th-3g',
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/abdm/registration/mobile/generateOtp' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2NzkzODk5MzEsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5MzkzNTMxLCJpYXQiOjE2NzkzODk5MzEsInZlcnNpb24iOjIsImp0aSI6Ijk2NmE5MDY3LTEwY2ItNDAxNS04OTBhLTM3MjQzOTk4MjAzZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.axFtyv5B3BIO3fxEa5jdg5xjvQPyA1WByXhY8co4pXBJ6FG4kh5mMyOkSC5BxNmVfuxu_brflZ6CGq9qIj78rut2xgAfkp5K_GwDZYnHHPdUVXWFY69IinplmE3unl_XGxtPWZt4ox_POzhP3PPMLMJanBEi4mEByDgLvyCv4WF2eThUfhlj6QAlDIJ0K0ivhxH3GyAmft_PdqxpDvm_qIwDZ4D6XT3BUQJit7bdtVXZkkhcvDUoAH2BmwHTZtv2F2ipvYgfrpIp3e520bJw1Stcgj1QB3K7HhR01KVtRN3E-it-Y1onF_BHAfl4KhwM6m4do1IJVFqFBCh96Th-3g' \
+--data-raw '{
+  "mobile": "9521752170"
+}'
+```
+
+> Response
+
+```json
+{
+  "txnId": "f78e389d-4011-429a-b629-2f40fee3ed2",
+  "existing": true
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/api/abdm/registration/mobile/generateOtp |
+
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+|mobile|String|9521xxxx70|
+
+Please provide the mobile number on which OTP needs to be sent.
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+|txnId|String|f78e389d-4011-429a-b629-2f40fee3ed2|
+|existing|boolean| true|
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|message|String|Enter correct phone number|
+
+####Status Code:  422
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 422|
+|message|String|Could not generate OTP|
+
+
+
+
+
+## Verify OTP sent to provided mobile number
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "txnId": "ebb693bd-2d35-4947-bc89-3e319570b462",
+  "otp": "462837"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/abdm/registration/mobile/verifyOtp',
+  headers: {
+    'accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0NjczNTYsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDcwOTU2LCJpYXQiOjE2Nzk0NjczNTYsInZlcnNpb24iOjIsImp0aSI6IjdkNWM1MmI3LWMzMzktNDA1Mi1iYmJmLWI3YzU5OTI0ZmI1ZSIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.DrP3CfOBYwDtprFA0fxcz_8T9olsSJazoGm7PSUTP1e14wuK7333fibhG2Wwv7S1Wq2z4NXkPmrMDjpsEC2gRiYbPawcqvNeTqk0S_hIG9tFq0BtVFHfZpSAfflZ-Y5xMsQ49pP6f2V5mlasw1j15ffTSAvoB3EF9XJYeAjIggmw0dYwaNqHFPWJkb16mGb-D_cyWp9j9Kg2KclEAkBPDtDpA6yReCukn_5NlikcotqAdn8PZVEVCFjLUpCw3BaRyg0-wzvGp5noQdPoXF0TnO1mFy0LvEd7Dxr5M3EsM-iZu38x2j93BAlrAMb1FsLfmCcYcRASiDHCg47o22iOag',
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/abdm/registration/mobile/verifyOtp' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0NjczNTYsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDcwOTU2LCJpYXQiOjE2Nzk0NjczNTYsInZlcnNpb24iOjIsImp0aSI6IjdkNWM1MmI3LWMzMzktNDA1Mi1iYmJmLWI3YzU5OTI0ZmI1ZSIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.DrP3CfOBYwDtprFA0fxcz_8T9olsSJazoGm7PSUTP1e14wuK7333fibhG2Wwv7S1Wq2z4NXkPmrMDjpsEC2gRiYbPawcqvNeTqk0S_hIG9tFq0BtVFHfZpSAfflZ-Y5xMsQ49pP6f2V5mlasw1j15ffTSAvoB3EF9XJYeAjIggmw0dYwaNqHFPWJkb16mGb-D_cyWp9j9Kg2KclEAkBPDtDpA6yReCukn_5NlikcotqAdn8PZVEVCFjLUpCw3BaRyg0-wzvGp5noQdPoXF0TnO1mFy0LvEd7Dxr5M3EsM-iZu38x2j93BAlrAMb1FsLfmCcYcRASiDHCg47o22iOag' \
+--data-raw '{
+  "txnId": "ebb693bd-2d35-4947-bc89-3e319570b42",
+  "otp": "462837"
+}'
+```
+> Response
+
+```json
+{
+  "token": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI5Mzc3NjEyMTM2IiwiY2xpZW50SWQiOiJTQlhfMDAyMjU0Iiwic3lzdGVtIjoiQUJIQS1OIiwiZXhwIjoxNjcyOTg4MzA3LCJpYXQiOjE2NzI5ODY1MDcsInR4bklkIjoiMzVhOGVhMjctMTI1Mi00ZDNhLWI1NjgtNGE2MzRmZmE1MDcxIn0.AquNlPILLuc6P0wb2LhtYx-0LMTTejk1kPBrssYL3ZyPnDpdudDDxDfokpYTiLCuaW4cD6iatnP0Mlb6mTaC7ffyMd0V-XTkyTjuO4sJ2vCzMvwIB-jePM8CdfBQYtSjJqJLWYqWbdSfjjuTKjE0vQc-lyyhtPMfS-eNzmns9nn89-RgvELNtrfHmIiGSjZMvdg5XdmwWtx5-Gf7rY2YHwgQw3VeOzZX58nEkOTvgPdzpCpmWE45rTK-EuagDT0t7DutzDHa7jk4egC4WeW1ILkiBsrzUJXvMFNwQn_wsJBrnGonIr9OOFZ81nShG88cnbEX4ovXeKdynNBfiI9dQUKMnOMAAZ5Cfbkz_nJ92rIUDMsedS8LCvKvO-jLTQhxb99zt4wpi8kfQa12jgFTddV8yKXh6WQKQvs8V3ZjLo2ykVntnGcBThG0rnqIPVvDzJ4Qq4h6vJ8sGe7kiBXvspGMP4MZQ8t78cBnKKmAN9OyMZiDaWlNa4t2ONhXfhu-p6wM4a5twEmpMZ7dbvuJTTFQl5Tc5fYHc3_0Trh8r3Tb3u4T4lhsacz0WF0ONZEQ0fgGxBwvnnTAPJsUD2DAn9xav82xWayAyMPLk_f-oupMowttx2nWeNQcIGGxLR8azEO_N2OmkeZmibU9Mjl3ZTecrBJfCHyt4PrRP0ywF-I"
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/api/abdm/registration/mobile/verifyOtp |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+|txnId | String |ebb693bd-2d35-4947-bc89-3e319570b462 |
+|otp| String |462837|
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+|token |String | eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI5Mzc3NjEyMTM2IiwiY2xpZW50SWQiOiJTQlhfMDAyMjU0Iiwic3lzdGVtIjoiQUJIQS1OIiwiZXhwIjoxNjcyOTg4MzA3LCJpYXQiOjE2NzI5ODY1MDcsInR4bklkIjoiMzVhOGVhMjctMTI1Mi00ZDNhLWI1NjgtNGE2MzRmZmE1MDcxIn0.AquNlPILLuc6P0wb2LhtYx-0LMTTejk1kPBrssYL3ZyPnDpdudDDxDfokpYTiLCuaW4cD6iatnP0Mlb6mTaC7ffyMd0V-XTkyTjuO4sJ2vCzMvwIB-jePM8CdfBQYtSjJqJLWYqWbdSfjjuTKjE0vQc-lyyhtPMfS-eNzmns9nn89-RgvELNtrfHmIiGSjZMvdg5XdmwWtx5-Gf7rY2YHwgQw3VeOzZX58nEkOTvgPdzpCpmWE45rTK-EuagDT0t7DutzDHa7jk4egC4WeW1ILkiBsrzUJXvMFNwQn_wsJBrnGonIr9OOFZ81nShG88cnbEX4ovXeKdynNBfiI9dQUKMnOMAAZ5Cfbkz_nJ92rIUDMsedS8LCvKvO-jLTQhxb99zt4wpi8kfQa12jgFTddV8yKXh6WQKQvs8V3ZjLo2ykVntnGcBThG0rnqIPVvDzJ4Qq4h6vJ8sGe7kiBXvspGMP4MZQ8t78cBnKKmAN9OyMZiDaWlNa4t2ONhXfhu-p6wM4a5twEmpMZ7dbvuJTTFQl5Tc5fYHc3_0Trh8r3Tb3u4T4lhsacz0WF0ONZEQ0fgGxBwvnnTAPJsUD2DAn9xav82xWayAyMPLk_f-oupMowttx2nWeNQcIGGxLR8azEO_N2OmkeZmibU9Mjl3ZTecrBJfCHyt4PrRP0ywF-I |
+
+####Errors
+
+####Status Code:  422
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 422|
+|message|String|	OTP entered is incorrect|
+
+
+## Creates HealthId
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "dayOfBirth": "14",
+  "monthOfBirth": "11",
+  "yearOfBirth": "2002",
+  "firstName": "Shivam",
+  "lastName": "Pachchigar",
+  "name": "shivam",
+  "healthId": "shivam1411",
+  "pincode": "395007",
+  "gender": "M",
+  "txnId": "35a8ea27-1252-4d3a-b568-4a634ffa5071",
+  "token": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI5Mzc3NjEyMTM2IiwiY2xpZW50SWQiOiJTQlhfMDAyMjU0Iiwic3lzdGVtIjoiQUJIQS1OIiwiZXhwIjoxNjczMzI2Mzk1LCJpYXQiOjE2NzMzMjQ1OTUsInR4bklkIjoiNmQ2NTc3MTEtYWZjMy00MWM1LWEyMTYtOGIzY2ViNTdhMWE4In0.nAsJJJYHq5AVhqtyW5WiyQ2zRh4zAm3M8D2JCidHVOleVme5nT7oCA_dxWnbp44b84HFubPfyUsMVFH62W_jK4cMf6dLVgDb3WdNMSmuKEWoiXqyIBycLgMweWIPhc_jhBNYUmfj1iy1HjvoXmTWnKrGBFeg7UBCuLdnxzOdLUck4eAdgXjtGrjM-BPLP_kiOU7Gi9FWyRfEipzyWVhGPRFpxll7IOizLJUAninbSG2mYJr_oPXK6EpIBUjruZDFizHRlDTn4gn1qQgTW2R5VZf4zOJBbCBujlQB42wLlcBZda25t2RJrDc4U263j6M7GTwumdGd-su99OYhL2muCE32ZQFdnRwS1iKmwIbusKeWeBKD4cHY9DqG8ro5U7dwrFCX02hsDUVwza9vLnVBsCVL7WuPVz0x4jRD5ofKYB-LdLxSMCGd8Ja8qkrwQNocW4cd545oP4zxmKxaSZrJ4cc1NcGXPs8nD7aS8RD7_cskXaejVFV9Vegmzbh8tZUOgkSvxL7hVq7opYWZr8-Qy1tO6fz-N2fBH49kh-75Gt9Px_Zu26ZctsB6Eh42BdT7ASQ5dGuRN3Ksf9QzUP2-6edVqdQbTc8YRjO1tO2TQCMt-aq2-gZXYOtHI-2CM_6GscuS7Mrn3Jnq750QDXojjZNadN9LH0GdJz22q9d_WSc"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/abdm/registration/mobile/createHealthId',
+  headers: {
+    'accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0NjczNTYsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDcwOTU2LCJpYXQiOjE2Nzk0NjczNTYsInZlcnNpb24iOjIsImp0aSI6IjdkNWM1MmI3LWMzMzktNDA1Mi1iYmJmLWI3YzU5OTI0ZmI1ZSIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.DrP3CfOBYwDtprFA0fxcz_8T9olsSJazoGm7PSUTP1e14wuK7333fibhG2Wwv7S1Wq2z4NXkPmrMDjpsEC2gRiYbPawcqvNeTqk0S_hIG9tFq0BtVFHfZpSAfflZ-Y5xMsQ49pP6f2V5mlasw1j15ffTSAvoB3EF9XJYeAjIggmw0dYwaNqHFPWJkb16mGb-D_cyWp9j9Kg2KclEAkBPDtDpA6yReCukn_5NlikcotqAdn8PZVEVCFjLUpCw3BaRyg0-wzvGp5noQdPoXF0TnO1mFy0LvEd7Dxr5M3EsM-iZu38x2j93BAlrAMb1FsLfmCcYcRASiDHCg47o22iOag',
+    'Cookie': 'XSRF-TOKEN=0d284a21-fd92-4f18-880e-81a4273509d6'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/abdm/registration/mobile/createHealthId' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0NjczNTYsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDcwOTU2LCJpYXQiOjE2Nzk0NjczNTYsInZlcnNpb24iOjIsImp0aSI6IjdkNWM1MmI3LWMzMzktNDA1Mi1iYmJmLWI3YzU5OTI0ZmI1ZSIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.DrP3CfOBYwDtprFA0fxcz_8T9olsSJazoGm7PSUTP1e14wuK7333fibhG2Wwv7S1Wq2z4NXkPmrMDjpsEC2gRiYbPawcqvNeTqk0S_hIG9tFq0BtVFHfZpSAfflZ-Y5xMsQ49pP6f2V5mlasw1j15ffTSAvoB3EF9XJYeAjIggmw0dYwaNqHFPWJkb16mGb-D_cyWp9j9Kg2KclEAkBPDtDpA6yReCukn_5NlikcotqAdn8PZVEVCFjLUpCw3BaRyg0-wzvGp5noQdPoXF0TnO1mFy0LvEd7Dxr5M3EsM-iZu38x2j93BAlrAMb1FsLfmCcYcRASiDHCg47o22iOag' \
+--header 'Cookie: XSRF-TOKEN=0d284a21-fd92-4f18-880e-81a4273509d6' \
+--data-raw '{
+  "dayOfBirth": "14",
+  "monthOfBirth": "11",
+  "yearOfBirth": "2002",
+  "firstName": "Shivam",
+  "lastName": "Pachchigar",
+  "name": "shivam",
+  "healthId": "shivam1411",
+  "pincode": "395007",
+  "gender": "M",
+  "txnId": "35a8ea27-1252-4d3a-b568-4a634ffa5071",
+  "token": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI5Mzc3NjEyMTM2IiwiY2xpZW50SWQiOiJTQlhfMDAyMjU0Iiwic3lzdGVtIjoiQUJIQS1OIiwiZXhwIjoxNjczMzI2Mzk1LCJpYXQiOjE2NzMzMjQ1OTUsInR4bklkIjoiNmQ2NTc3MTEtYWZjMy00MWM1LWEyMTYtOGIzY2ViNTdhMWE4In0.nAsJJJYHq5AVhqtyW5WiyQ2zRh4zAm3M8D2JCidHVOleVme5nT7oCA_dxWnbp44b84HFubPfyUsMVFH62W_jK4cMf6dLVgDb3WdNMSmuKEWoiXqyIBycLgMweWIPhc_jhBNYUmfj1iy1HjvoXmTWnKrGBFeg7UBCuLdnxzOdLUck4eAdgXjtGrjM-BPLP_kiOU7Gi9FWyRfEipzyWVhGPRFpxll7IOizLJUAninbSG2mYJr_oPXK6EpIBUjruZDFizHRlDTn4gn1qQgTW2R5VZf4zOJBbCBujlQB42wLlcBZda25t2RJrDc4U263j6M7GTwumdGd-su99OYhL2muCE32ZQFdnRwS1iKmwIbusKeWeBKD4cHY9DqG8ro5U7dwrFCX02hsDUVwza9vLnVBsCVL7WuPVz0x4jRD5ofKYB-LdLxSMCGd8Ja8qkrwQNocW4cd545oP4zxmKxaSZrJ4cc1NcGXPs8nD7aS8RD7_cskXaejVFV9Vegmzbh8tZUOgkSvxL7hVq7opYWZr8-Qy1tO6fz-N2fBH49kh-75Gt9Px_Zu26ZctsB6Eh42BdT7ASQ5dGuRN3Ksf9QzUP2-6edVqdQbTc8YRjO1tO2TQCMt-aq2-gZXYOtHI-2CM_6GscuS7Mrn3Jnq750QDXojjZNadN9LH0GdJz22q9d_WSc"
+}'
+```
+> Response
+
+```json
+{
+  "token": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJzaGl2YW0xNDE1Z2dnQHNieCIsImNsaWVudElkIjoiUEhSLVdFQiIsInN5c3RlbSI6IkFCSEEtQSIsInJlcXVlc3RlcklkIjoiUEhSLVdFQiIsImV4cCI6MTY3MzIwMjYwOCwiaWF0IjoxNjczMTk1NDA4LCJwaHJBZGRyZXNzIjoic2hpdmFtMTQxNWdnZ0BzYngifQ.KXDYpfM33GFA2kLVfTUsrARi-sIyGlHz2gvNlTt8WrfvMFuzkIy7jM4f7JC9NAI9Jc0YOcflD2l_qVGRE99XSsbYJAJvGy8-3STBfa0aIJygO2TmAGB_Q-TBgeHgLsJzDUii3xazJXO45J7ZA3_2edt8d6vOGjLb1yatcshd6BCJQvAb9U5-Wy44lwvOXJ_B9JKCSNH9XXqJaxXE4RC-lCRruHp1dfRbJfWjrLIeo_0Sp3V73ccsG0Xd65XNIm_gAgF9i_08LqH7wOF1CnCmhoF9mSdCHHO2Ol3i_kinp4KCYPrEc_R0grDOYQBib383CBZVqpCJfA40ZPRkk5_uwg",
+  "refreshToken": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJzaGl2YW0xNDE1Z2dnQHNieCIsImNsaWVudElkIjoiUEhSLVdFQiIsInN5c3RlbSI6IkFCSEEtQSIsInR5cCI6IlJlZnJlc2giLCJleHAiOjE2NzQ0OTE0MDgsImlhdCI6MTY3MzE5NTQwOH0.LAFDLosImyk5rAJYJlsbfYlxLtaHxqafVkS8VKJ5vrOLXdQi7iLrS9po4O-wc0ITsnWAkqzPrCQYYVVx-km8NPf9IWkRWmqmYEoc-42WNXMepYsSb1ZxFJYL5wgCCc_NZ5oETrg7Jz-WkRVQtsWnC__KlqJFzjZPWNB9jtzSkrkZUBuwPbXY65LiRZVyZSRJLWQv1D-TLsZhIHfDJmcEEh7IYTl3uSX5Pmi8dXO277QGw2VF0ObpIEPwis1jc5OnoLQOlcfFVLI8vvaDVngEizmxx2d5COjp1yFIBMSH7VhfzunPDmR2OFRpI5rwgmw7asGm9IY4eJozVS7cI2zk2A",
+  "healthIdNumber": null,
+  "name": shivam,
+  "gender": "M",
+  "yearOfBirth": "200",
+  "monthOfBirth": "6",
+  "dayOfBirth": "2",
+  "firstName": "Shivam",
+  "middleName": null,
+  "stateCode": null,
+  "districtCode": null,
+  "stateName": null,
+  "districtName": null,
+  "email": null,
+  "kycPhoto": null,
+  "profilePhoto": null,
+  "mobile": "9377612136",
+  "authMethods": [
+    "DEMOGRAPHICS",
+    "PASSWORD",
+    "MOBILE_OTP"
+  ],
+  "pincode": "395002",
+  "tags": "null",
+  "new": true
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL|  |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description/values|
+|------|----|------------|
+| dayOfBirth|String|14|
+|monthOfBirth|String|11|
+|yearOfBirth|String|2002|
+|firstName|String|Shivam|
+|lastName|String|Pachchigar|
+|name|String|shivam|
+|healthId|String|shivam1411|
+|pincode|String|395007|
+|gender|String|M|
+|txnId|String|35a8ea27-1252-4d3a-b568-4a634ffa5071|
+|token|String|eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI5Mzc3NjEyMTM2IiwiY2xpZW50SWQiOiJTQlhfMDAyMjU0Iiwic3lzdGVtIjoiQUJIQS1OIiwiZXhwIjoxNjczMzI2Mzk1LCJpYXQ |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+| | | |
+|token|String|eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJzaGl2YW0xNDE1Z2dnQHNieCIsImNsaWVudElkIjoiUEhSLVdFQiIsInN5c3RlbSI6IkFCSEEtQSIsInJlcXVlc3RlcklkIjoiUEhSLVdFQiIsImV4cCI6MTY3MzIwMjYwOCwiaWF0IjoxNjczMTk1NDA4LCJwaHJBZGRyZXN|
+|refreshToken|String|eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJzaGl2YW0xNDE1Z2dnQHNieCIsImNsaWVudElkIjoiUEhSLVdFQiIsInN5c3RlbSI6IkFCSEEtQSIsInR5cCI6IlJlZnJlc2giLCJleHAiOjE2NzQ0OTE0MDgsImlhdCI6MTY3MzE5NTQwOH0.LAFDLosImyk5r|
+|healthIdNumber|String|null|
+|name|String|shivam|
+|gender|String|M|
+|yearOfBirth|String|200|
+|monthOfBirth|String|6|
+|dayOfBirth|String|2|
+|firstName|String|Shivam|
+|middleName|String|null|
+|stateCode|String|null|
+|districtCode|String|null|
+|stateName|String|null|
+|districtName|String|null|
+|email|String|null|
+|kycPhoto|String|null|
+|profilePhoto|String|null|
+|mobile|String|9377612136|
+|authMethods|Array| ["DEMOGRAPHICS","PASSWORD","MOBILE_OTP"]|
+|pincode|String|395002|
+|tags|String|null|
+|new|boolean|true|
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|message|String|Enter correct phone number|
+
+####Status Code:
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| |
+|message|String||
+
+
+
+## Exist by HealthId
+
+
+```javascript
+```
+
+```cURL
+```
+> Response
+
+```json
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL|  |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+| | | |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+| | | |
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|message|String|Enter correct phone number|
+
+####Status Code:
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| |
+|message|String||
+
+
+

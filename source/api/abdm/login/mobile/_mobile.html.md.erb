@@ -1,0 +1,305 @@
+# Login using Mobile
+
+## Send OTP to given mobile number
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "mobile": "9521752170"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/abdm/login/mobile/generateOtp',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0ODIyNzksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDg1ODc5LCJpYXQiOjE2Nzk0ODIyNzksInZlcnNpb24iOjIsImp0aSI6IjE2YTZkZmM1LTBjNDgtNDQ4ZC04ZDg2LTk4YzU1NmFmYzNmZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.JrqSc757L9upYkT1FLKTGlXsCK-ydM71aBODfrYI31nkQ9Y67zv5Q_PsMkXrOOErMXWqFBAcAl9RQ7zJRnSnWcMnsc1Y1RZnpJuug1jhohaqAAIIOPVp0ZSOABjw6zrw7YZB6FfRbuoGblE0rDOZARa8G0YdKnXOhASDbaVKJr--meTFhAyO5Q1N4fMqJjct5VRhgttsUINvoBpfMxHbWo8AjD9PO4DLvaMbIhNM3wAWHL3wOVXThqFVZIVBcmU4CmMyApm3zpVk_41EYrPRzdZ85WFj54qhTKhBNPwC9oOEuLMTrTGDgl-KW3uUUb_ZeTPyPYC0AapNtaLHqY6X4Q',
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/abdm/login/mobile/generateOtp' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0ODIyNzksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDg1ODc5LCJpYXQiOjE2Nzk0ODIyNzksInZlcnNpb24iOjIsImp0aSI6IjE2YTZkZmM1LTBjNDgtNDQ4ZC04ZDg2LTk4YzU1NmFmYzNmZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.JrqSc757L9upYkT1FLKTGlXsCK-ydM71aBODfrYI31nkQ9Y67zv5Q_PsMkXrOOErMXWqFBAcAl9RQ7zJRnSnWcMnsc1Y1RZnpJuug1jhohaqAAIIOPVp0ZSOABjw6zrw7YZB6FfRbuoGblE0rDOZARa8G0YdKnXOhASDbaVKJr--meTFhAyO5Q1N4fMqJjct5VRhgttsUINvoBpfMxHbWo8AjD9PO4DLvaMbIhNM3wAWHL3wOVXThqFVZIVBcmU4CmMyApm3zpVk_41EYrPRzdZ85WFj54qhTKhBNPwC9oOEuLMTrTGDgl-KW3uUUb_ZeTPyPYC0AapNtaLHqY6X4Q' \
+--data-raw '{
+  "mobile": "9521752170"
+}'
+```
+> Response
+
+```json
+{
+    "transactionId": "66fd675e-177a-45a8-8be1-419527283a53",
+    "requesterId": "phr_001",
+    "authMode": "MOBILE_OTP",
+    "error": null
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/api/abdm/login/mobile/generateOtp |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint.
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+|mobile | String | 9521752170|
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+| transactionId| String |66fd675e-177a-45a8-8be1-419527283a53 |
+|requesterId | String |phr_001 |
+|authMode| String|MOBILE_OTP |
+|error| String| null |
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|message|String|Enter correct phone number|
+
+####Status Code: 422
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 422 |
+|message|String| Couldn not generate OTP |
+
+
+
+
+
+## Verify OTP given to mobile number
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "txnId": "66fd675e-177a-45a8-8be1-419527283a53",
+  "otp": "412211"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/abdm/login/mobile/verifyOtp',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0ODIyNzksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDg1ODc5LCJpYXQiOjE2Nzk0ODIyNzksInZlcnNpb24iOjIsImp0aSI6IjE2YTZkZmM1LTBjNDgtNDQ4ZC04ZDg2LTk4YzU1NmFmYzNmZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.JrqSc757L9upYkT1FLKTGlXsCK-ydM71aBODfrYI31nkQ9Y67zv5Q_PsMkXrOOErMXWqFBAcAl9RQ7zJRnSnWcMnsc1Y1RZnpJuug1jhohaqAAIIOPVp0ZSOABjw6zrw7YZB6FfRbuoGblE0rDOZARa8G0YdKnXOhASDbaVKJr--meTFhAyO5Q1N4fMqJjct5VRhgttsUINvoBpfMxHbWo8AjD9PO4DLvaMbIhNM3wAWHL3wOVXThqFVZIVBcmU4CmMyApm3zpVk_41EYrPRzdZ85WFj54qhTKhBNPwC9oOEuLMTrTGDgl-KW3uUUb_ZeTPyPYC0AapNtaLHqY6X4Q',
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/abdm/login/mobile/verifyOtp' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0ODIyNzksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDg1ODc5LCJpYXQiOjE2Nzk0ODIyNzksInZlcnNpb24iOjIsImp0aSI6IjE2YTZkZmM1LTBjNDgtNDQ4ZC04ZDg2LTk4YzU1NmFmYzNmZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.JrqSc757L9upYkT1FLKTGlXsCK-ydM71aBODfrYI31nkQ9Y67zv5Q_PsMkXrOOErMXWqFBAcAl9RQ7zJRnSnWcMnsc1Y1RZnpJuug1jhohaqAAIIOPVp0ZSOABjw6zrw7YZB6FfRbuoGblE0rDOZARa8G0YdKnXOhASDbaVKJr--meTFhAyO5Q1N4fMqJjct5VRhgttsUINvoBpfMxHbWo8AjD9PO4DLvaMbIhNM3wAWHL3wOVXThqFVZIVBcmU4CmMyApm3zpVk_41EYrPRzdZ85WFj54qhTKhBNPwC9oOEuLMTrTGDgl-KW3uUUb_ZeTPyPYC0AapNtaLHqY6X4Q' \
+--data-raw '{
+  "txnId": "66fd675e-177a-45a8-8be1-419527283a53",
+  "otp": "412211"
+}'
+```
+> Response
+
+```json
+{
+    "transactionId": "66fd675e-177a-45a8-8be1-419527283a53",
+    "requesterId": "phr_001",
+    "mobileEmail": "9521752170",
+    "mappedPhrAddress": [
+        "ragr281991@sbx"
+    ]
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL| https://api.parchaa.com/api/abdm/login/mobile/verifyOtp |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+|txnId|String|66fd675e-177a-45a8-8be1-419527283a53|
+|otp|String|412211 |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+|transactionId|String|66fd675e-177a-45a8-8be1-419527283a53|
+|requesterId|String|phr_001|
+|mobileEmail|String|9521752170|
+|mappedPhrAddress | Array | ["ragr281991@sbx"] |
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|message|String| Bad Request|
+
+####Status Code: 422
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 422 |
+|message|String| 	OTP wrong/expired|
+
+
+
+
+
+## confirm login
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "patientId": "ragr281991@sbx",
+  "txnId": "66fd675e-177a-45a8-8be1-419527283a53"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://api.parchaa.com/api/abdm/login/mobile/confirm',
+  headers: {
+    'accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0ODIyNzksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDg1ODc5LCJpYXQiOjE2Nzk0ODIyNzksInZlcnNpb24iOjIsImp0aSI6IjE2YTZkZmM1LTBjNDgtNDQ4ZC04ZDg2LTk4YzU1NmFmYzNmZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.JrqSc757L9upYkT1FLKTGlXsCK-ydM71aBODfrYI31nkQ9Y67zv5Q_PsMkXrOOErMXWqFBAcAl9RQ7zJRnSnWcMnsc1Y1RZnpJuug1jhohaqAAIIOPVp0ZSOABjw6zrw7YZB6FfRbuoGblE0rDOZARa8G0YdKnXOhASDbaVKJr--meTFhAyO5Q1N4fMqJjct5VRhgttsUINvoBpfMxHbWo8AjD9PO4DLvaMbIhNM3wAWHL3wOVXThqFVZIVBcmU4CmMyApm3zpVk_41EYrPRzdZ85WFj54qhTKhBNPwC9oOEuLMTrTGDgl-KW3uUUb_ZeTPyPYC0AapNtaLHqY6X4Q',
+    'Cookie': 'XSRF-TOKEN=2e786b3f-2652-42db-9ddb-0d4247f5594b'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+```cURL
+curl --location --request POST 'https://api.parchaa.com/api/abdm/login/mobile/confirm' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0ODIyNzksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDg1ODc5LCJpYXQiOjE2Nzk0ODIyNzksInZlcnNpb24iOjIsImp0aSI6IjE2YTZkZmM1LTBjNDgtNDQ4ZC04ZDg2LTk4YzU1NmFmYzNmZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.JrqSc757L9upYkT1FLKTGlXsCK-ydM71aBODfrYI31nkQ9Y67zv5Q_PsMkXrOOErMXWqFBAcAl9RQ7zJRnSnWcMnsc1Y1RZnpJuug1jhohaqAAIIOPVp0ZSOABjw6zrw7YZB6FfRbuoGblE0rDOZARa8G0YdKnXOhASDbaVKJr--meTFhAyO5Q1N4fMqJjct5VRhgttsUINvoBpfMxHbWo8AjD9PO4DLvaMbIhNM3wAWHL3wOVXThqFVZIVBcmU4CmMyApm3zpVk_41EYrPRzdZ85WFj54qhTKhBNPwC9oOEuLMTrTGDgl-KW3uUUb_ZeTPyPYC0AapNtaLHqY6X4Q' \
+--header 'Cookie: XSRF-TOKEN=2e786b3f-2652-42db-9ddb-0d4247f5594b' \
+--data-raw '{
+  "patientId": "ragr281991@sbx",
+  "txnId": "66fd675e-177a-45a8-8be1-419527283a53"
+}'
+```
+> Response
+
+```json
+{
+    "phrAddress": "ragr281991@sbx",
+    "token": "Bearer eyJhbGciOiJSUzUxMiJ9.eyJwaW5jb2RlIjpudWxsLCJzdWIiOiJyYWdyMjgxOTkxQHNieCIsImNsaWVudElkIjoiU0JYXzAwMjI1NCIsInJlcXVlc3RlcklkIjoiUEhSLVdFQiIsImdlbmRlciI6Ik0iLCJkaXN0cmljdE5hbWUiOiJMQUxJVFBVUiIsIm1vYmlsZSI6Ijk1MjE3NTIxNzAiLCJmdWxsTmFtZSI6IlJhanZlZXIiLCJhZGRyZXNzTGluZSI6IkMvTyBSYW1iaGFyYXQgOTMgYmFudCBCYW50IiwiaGVhbHRoSWROdW1iZXIiOiI5MS0yNzc1LTY3ODgtNTY0OSIsIm1vbnRoT2ZCaXJ0aCI6IjEwIiwic3lzdGVtIjoiQUJIQS1BIiwic3RhdGVOYW1lIjoiVVRUQVIgUFJBREVTSCIsImRheU9mQmlydGgiOiIyMiIsInBock1vYmlsZSI6Ijk1MjE3NTIxNzAiLCJleHAiOjE2Nzk0OTExOTIsImlhdCI6MTY3OTQ4Mzk5MiwicGhyQWRkcmVzcyI6InJhZ3IyODE5OTFAc2J4IiwiZW1haWwiOm51bGwsInR4bklkIjoiNjZmZDY3NWUtMTc3YS00NWE4LThiZTEtNDE5NTI3MjgzYTUzIiwieWVhck9mQmlydGgiOiIyMDAwIn0.sIrSHRBi8BHhPIIY9kwb_pMBmGQ4Rdare9r4zPMt-h9Pms5imNHAtoQQc3DyVhWD8CMleofGVyrXJRoRnz0RaAiqv3WKdZ9xY6dDwsKAdreHMKNDxzpSZjM1GNLGguuqEeOOKdlNUzJdIBl4EO7lsSGTRZ13MsYK9wrmXZPiKRN_XEqBisgHlsjUfkNuobzQ5mA73ceyiTtNWWWPhdFBu6KbWjzZh7iAfCSgOXKoBYAX_a-0TGoIq0OeasieFECnHuWBJNI_-Ri8QcunCAmMFFHeyVu4MhkDb1yqrsIRkFPASqFIcbPG3JcEXGPv1yZ8P5-WQtxAZfH6qDTi6CkcDg",
+    "expiresIn": "7200",
+    "refreshToken": "Bearer eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJyYWdyMjgxOTkxQHNieCIsImNsaWVudElkIjoiU0JYXzAwMjI1NCIsInN5c3RlbSI6IkFCSEEtQSIsInR5cCI6IlJlZnJlc2giLCJleHAiOjE2ODA3Nzk5OTIsImlhdCI6MTY3OTQ4Mzk5Mn0.NAD6k0CKwdU-e7PP611CyaOwn8qXn1as-0wGS8VBLu57Skt69IxtFZVOyW0pXNWgWEI7n9Mvj8S8ZHeCB3oTPQlETVSMuQBCsEdDvnXGvdzw373fLMbL9qI2YrzOVKSpY-z95lK_C3ZJaGpPVrbXotKOT9fvEAVc0KWZZ2o3usamENc0cYiEMPY8YaZ8ugFmrGNaY2G2VF2pFyVE_yYtRdHhg_TCtDYD1ebr9AqNyV89roKqeWHjo7tvAOYIicjw7vNTyyBxJN3awFTD987I5GTMDrZ8GvPBm7pdjegMsmUQTScKCsL9bu4T9cSED9MqxJwhIZQ3uRqUBcShp6e7PQ",
+    "refreshExpiresIn": "1296000"
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `POST`|
+|URL|  https://api.parchaa.com/api/abdm/login/mobile/confirm |
+
+### Headers
+|Key|Value|
+|-------------------|----------------------|
+|Content-Type| application/json |
+|Authorization|Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh|
+
+In Authorization header we have to pass the token which we received from /token endpoint.
+
+### Request Parameters in Body
+Request body will be of JSON type
+
+|Field |Type| Description|
+|------|----|------------|
+| patientId|String|ragr281991@sbx|
+|txnId| String |66fd675e-177a-45a8-8be1-419527283a53|
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+| phrAddress| String |ragr281991@sbx |
+| token | String | Bearer eyJhbGciOiJSUzUxMiJ9.eyJwaW5jb2RlIjpudWxsLCJzdWIiOiJyYWdyMjgxOTkxQHNieCIsImNsaWVudElkIjoiU0JY |
+| expiresIn| String | 7200 |
+| refreshToken | String | Bearer eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJyYWdyMjgxOTkxQHNieCIsImNsaWVudElkIjoiU |
+| refreshExpiresIn| String | 1296000 |
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|message|String| Bad request|
+
+####Status Code: 422
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 422 |
+|message|String| Invalid details|
+
+

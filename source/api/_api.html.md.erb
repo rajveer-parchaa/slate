@@ -1,0 +1,36 @@
+# Parchaa Api reference
+
+```cURL
+BaseURL: https://api.parchaa.com
+```
+
+
+
+
+Welcome to Parchaa, an AI healthcare company that provides intelligent healthcare systems
+for healthcare management. Our APIs are designed to help developers easily integrate with
+Parchaa and access our smart healthcare solutions. To get started, you will need client
+credentials provided by our cred-admin (contact rajveer@parchaa.com). Once you have your
+credentials, you can generate an access token using the "/token" endpoint, which can be used
+as a bearer token for all Parchaa APIs.
+
+
+
+
+<%= partial "./api/auth/_auth.html.md.erb" %>
+
+<%= partial "./api/abdm/registration/mobile/_mobile.html.md.erb" %>
+
+<%= partial "./api/abdm/registration/aadhaar/_aadhaar.html.md.erb" %>
+
+<%= partial "./api/abdm/login/mobile/_mobile.html.md.erb" %>
+
+<%= partial "./api/abdm/login/healthNumber/_healthNumber.html.md.erb" %>
+
+<%= partial "./api/abdm/login/healthId/_healthId.html.md.erb" %>
+
+<%= partial "./api/abdm/profile/_profile.html.md.erb" %>
+
+<%= partial "./api/users/_users.html.md.erb" %>
+
+<%= partial "./api/errors/_errors.html.md.erb" %>
