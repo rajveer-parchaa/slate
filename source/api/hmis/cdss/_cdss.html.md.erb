@@ -1,0 +1,768 @@
+# CDSS APIs
+
+## getInvestigations
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+    "cc":{
+        "cc_name":"Headache",
+        "cc_snomed_ct":"25064002"      
+    },
+    "diag":{
+        "diag_name":"Cluster Headache",
+        "diag_snomed_ct":"193031009"
+    }
+});
+
+var config = {
+  method: 'get',
+  url: 'https://api.parchaa.com/api/cdss/getInvestigations',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
+
+```cURL
+curl --location --request GET 'https://api.parchaa.com/api/cdss/getInvestigations' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "cc":{
+      "cc_name":"Headache",
+      "cc_snomed_ct":"25064002"      
+  },
+  "diag":{
+      "diag_name":"Cluster Headache",
+      "diag_snomed_ct":"193031009"
+  }
+}'
+```
+> Response
+
+```json
+{
+    "message": "Investigations retrieved successfully",
+    "investigations": [
+        {
+            "inv_snomed_ct": "312474003",
+            "inv_name": "Blood Electrolyte levels"
+        },
+        {
+            "inv_snomed_ct": "396205005",
+            "inv_name": "CT brain"
+        }
+    ]
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `GET`|
+|URL| https://api.parchaa.com/api/cdss/getInvestigations |
+
+### Request Parameters in Body
+Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
+In case of any error, please contact Parchaa.
+
+|Field |Type| Description|
+|------|----|------------|
+|cc_name  | String |Chief Complaint Name |
+|cc_snomed_ct| String |Chief Complaint Snomed Ct code |
+|diag_name  | String |Diagnosis Name |
+|diag_snomed_ct| String |Diagnosis Snomed Ct code |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+| message | String | Success message |
+| investigations | Array | Array of instructions |
+| inv_name | String | Name of the investigation |
+| inv_snomed_ct | String | Snomed Ct code of the investigation |
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|error|String| Bad Request |
+
+One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
+Or the requested data is not found in the database.
+
+####Status Code: 500
+|Field |Type| Description|
+|------|----|------------|
+|statusCode | Integer | 500 |
+|error | String| Internal server error |
+
+If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.
+
+## getMedications
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+    "cc":{
+        "cc_name":"Headache",
+        "cc_snomed_ct":"25064002"      
+    },
+    "diag":{
+        "diag_name":"Cluster Headache",
+        "diag_snomed_ct":"193031009"
+    }
+});
+
+var config = {
+  method: 'get',
+  url: 'https://api.parchaa.com/api/cdss/getMedications',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
+
+```cURL
+curl --location --request GET 'https://api.parchaa.com/api/cdss/getMedications' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "cc":{
+      "cc_name":"Headache",
+      "cc_snomed_ct":"25064002"      
+  },
+  "diag":{
+      "diag_name":"Cluster Headache",
+      "diag_snomed_ct":"193031009"
+  }
+}'
+```
+> Response
+
+```json
+{
+    "message": "Medications retrived successfully",
+    "medications": [
+        {
+            "med_snomed_ct": "395892000",
+            "med_name": "Sumatriptan"
+        },
+        {
+            "med_snomed_ct": "372754009",
+            "med_name": "Verapamil"
+        }
+    ]
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `GET`|
+|URL| https://api.parchaa.com/api/cdss/getMedications |
+
+### Request Parameters in Body
+Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
+In case of any error, please contact Parchaa.
+
+|Field |Type| Description|
+|------|----|------------|
+|cc_name  | String |Chief Complaint Name |
+|cc_snomed_ct| String |Chief Complaint Snomed Ct code |
+|diag_name  | String |Diagnosis Name |
+|diag_snomed_ct| String |Diagnosis Snomed Ct code |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+|------|----|------------|
+| message | String | Success message |
+| medications | Array | Array of medications |
+| med_name | String | Name of the medicine |
+| med_snomed_ct | String | Snomed Ct code of the medicine |
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|error|String| Bad Request |
+
+One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
+Or the requested data is not found in the database.
+
+####Status Code: 500
+|Field |Type| Description|
+|------|----|------------|
+|statusCode | Integer | 500 |
+|error | String| Internal server error |
+
+If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.
+
+## getVitalSigns
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+    "cc":{
+        "cc_name":"Headache",
+        "cc_snomed_ct":"25064002"      
+    },
+    "diag":{
+        "diag_name":"Cluster Headache",
+        "diag_snomed_ct":"193031009"
+    }
+});
+
+var config = {
+  method: 'get',
+  url: 'https://api.parchaa.com/api/cdss/getVitalSigns',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
+
+```cURL
+curl --location --request GET 'https://api.parchaa.com/api/cdss/getVitalSigns' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "cc":{
+      "cc_name":"Headache",
+      "cc_snomed_ct":"25064002"      
+  },
+  "diag":{
+      "diag_name":"Cluster Headache",
+      "diag_snomed_ct":"193031009"
+  }
+}'
+```
+> Response
+
+```json
+{
+    "message": "Vital Signs retrived successfully",
+    "vitalSigns": [
+        {
+            "vital_snomed_ct": "78564009",
+            "vital_name": "Pulse rate"
+        },
+        {
+            "vital_snomed_ct": "252465000",
+            "vital_name": "Pulse oximetry"
+        }
+    ]
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `GET`|
+|URL| https://api.parchaa.com/api/cdss/getVitalSigns |
+
+### Request Parameters in Body
+Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
+In case of any error, please contact Parchaa.
+
+|Field |Type| Description|
+|------|----|------------|
+|cc_name  | String |Chief Complaint Name |
+|cc_snomed_ct| String |Chief Complaint Snomed Ct code |
+|diag_name  | String |Diagnosis Name |
+|diag_snomed_ct| String |Diagnosis Snomed Ct code |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+|------|----|------------|
+| message | String | Success message |
+| vitalSigns | Array | Array of vital signs |
+| vital_name | String | Name of the vital sign |
+| vital_snomed_ct | String | Snomed Ct code of the vital sign |
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|error|String| Bad Request |
+
+One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
+Or the requested data is not found in the database.
+
+####Status Code: 500
+|Field |Type| Description|
+|------|----|------------|
+|statusCode | Integer | 500 |
+|error | String| Internal server error |
+
+If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.
+
+## getLifestyleRecommendations
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+    "cc":{
+        "cc_name":"Headache",
+        "cc_snomed_ct":"25064002"      
+    },
+    "diag":{
+        "diag_name":"Cluster Headache",
+        "diag_snomed_ct":"193031009"
+    }
+});
+
+var config = {
+  method: 'get',
+  url: 'https://api.parchaa.com/api/cdss/getLifestyleRecommendations',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
+
+```cURL
+curl --location --request GET 'https://api.parchaa.com/api/cdss/getLifestyleRecommendations' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "cc":{
+      "cc_name":"Headache",
+      "cc_snomed_ct":"25064002"      
+  },
+  "diag":{
+      "diag_name":"Cluster Headache",
+      "diag_snomed_ct":"193031009"
+  }
+}'
+```
+> Response
+
+```json
+{
+    "message": "Lifestyle Recommendations retrived successfully",
+    "lifestyleRecommendations": [
+        {
+            "lifestyle_snomed_ct": "1234",
+            "lifestyle_name": "Drink 4 to 5 glasses of water everyday."
+        },
+        {
+            "lifestyle_snomed_ct": "1235",
+            "lifestyle_name": "In case your pain increases, take pain relief medications."
+        }
+    ]
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `GET`|
+|URL| https://api.parchaa.com/api/cdss/getLifestyleRecommendations |
+
+### Request Parameters in Body
+Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
+In case of any error, please contact Parchaa.
+
+|Field |Type| Description|
+|------|----|------------|
+|cc_name  | String |Chief Complaint Name |
+|cc_snomed_ct| String |Chief Complaint Snomed Ct code |
+|diag_name  | String |Diagnosis Name |
+|diag_snomed_ct| String |Diagnosis Snomed Ct code |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+|------|----|------------|
+| message | String | Success message |
+| lifestyleRecommendations | Array | Array of lifestyle recommendations |
+| lifestyle_name | String | Name of the lifestyle recommendation |
+| lifestyle_snomed_ct | String | Snomed Ct code of the lifestyle recommendation |
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|error|String| Bad Request |
+
+One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
+Or the requested data is not found in the database.
+
+####Status Code: 500
+|Field |Type| Description|
+|------|----|------------|
+|statusCode | Integer | 500 |
+|error | String| Internal server error |
+
+If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.
+
+## getMedicationInstructions
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+    "cc":{
+        "cc_name":"Headache",
+        "cc_snomed_ct":"25064002"      
+    },
+    "diag":{
+        "diag_name":"Cluster Headache",
+        "diag_snomed_ct":"193031009"
+    }
+});
+
+var config = {
+  method: 'get',
+  url: 'https://api.parchaa.com/api/cdss/getMedicationInstructions',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
+
+```cURL
+curl --location --request GET 'https://api.parchaa.com/api/cdss/getMedicationInstructions' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "cc":{
+      "cc_name":"Headache",
+      "cc_snomed_ct":"25064002"      
+  },
+  "diag":{
+      "diag_name":"Cluster Headache",
+      "diag_snomed_ct":"193031009"
+  }
+}'
+```
+> Response
+
+```json
+{
+    "message": "Medication Instructions retrived successfully",
+    "instructions": [
+        {
+            "med_name": "Sumatriptan",
+            "medistr_name": "Contraindicated in the presence of CAD and cerebrovascular disease, brainstem aura and hemiplegic migraine",
+            "medistr_snomed_ct": "395892000"
+        },
+        {
+            "med_name": "Sumatriptan",
+            "medistr_name": "Not to be taken by patients having uncontrolled hypertension.",
+            "medistr_snomed_ct": "395892001"
+        },
+        {
+            "med_name": "Verapamil",
+            "medistr_name": "Contraindicated in patients of severe hypertension",
+            "medistr_snomed_ct": "372754009"
+        },
+        {
+            "med_name": "Verapamil",
+            "medistr_name": "Not be taken by patients having congestive cardiac failure",
+            "medistr_snomed_ct": "372754008"
+        }
+    ]
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `GET`|
+|URL| https://api.parchaa.com/api/cdss/getMedicationInstructions |
+
+### Request Parameters in Body
+Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
+In case of any error, please contact Parchaa.
+
+|Field |Type| Description|
+|------|----|------------|
+|cc_name  | String |Chief Complaint Name |
+|cc_snomed_ct| String |Chief Complaint Snomed Ct code |
+|diag_name  | String |Diagnosis Name |
+|diag_snomed_ct| String |Diagnosis Snomed Ct code |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+|------|----|------------|
+| message | String | Success message |
+| instructions | Array | array of medication instructions |
+| med_name | String | name of the medicine |
+| medistr_name | String | Name of the medication instruction for the given medicine |
+| medistr_snomed_ct | String | Snomed Ct code of the lmedication instruction for the given medicine |
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|error|String| Bad Request |
+
+One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
+Or the requested data is not found in the database.
+
+####Status Code: 500
+|Field |Type| Description|
+|------|----|------------|
+|statusCode | Integer | 500 |
+|error | String| Internal server error |
+
+If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.
+
+## getAllData
+
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+    "cc":{
+        "cc_name":"Headache",
+        "cc_snomed_ct":"25064002"      
+    },
+    "diag":{
+        "diag_name":"Cluster Headache",
+        "diag_snomed_ct":"193031009"
+    }
+});
+
+var config = {
+  method: 'get',
+  url: 'https://api.parchaa.com/api/cdss/getAllData',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
+
+```cURL
+curl --location --request GET 'https://api.parchaa.com/api/cdss/getAllData' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "cc":{
+      "cc_name":"Headache",
+      "cc_snomed_ct":"25064002"      
+  },
+  "diag":{
+      "diag_name":"Cluster Headache",
+      "diag_snomed_ct":"193031009"
+  }
+}'
+```
+> Response
+
+```json
+{
+    "message": "All data retrieved successfully",
+    "investigations": [
+        {
+            "inv_snomed_ct": "312474003",
+            "inv_name": "Blood Electrolyte levels"
+        },
+        {
+            "inv_snomed_ct": "396205005",
+            "inv_name": "CT brain"
+        }
+    ],
+    "medications": [
+        {
+            "med_snomed_ct": "395892000",
+            "med_name": "Sumatriptan"
+        },
+        {
+            "med_snomed_ct": "372754009",
+            "med_name": "Verapamil"
+        }
+    ],
+    "vitalSigns": [
+        {
+            "vital_snomed_ct": "78564009",
+            "vital_name": "Pulse rate"
+        },
+        {
+            "vital_snomed_ct": "252465000",
+            "vital_name": "Pulse oximetry"
+        }
+    ],
+    "lifestyleRecommendations": [
+        {
+            "lifestyle_snomed_ct": "1234",
+            "lifestyle_name": "Drink 4 to 5 glasses of water everyday."
+        },
+        {
+            "lifestyle_snomed_ct": "1235",
+            "lifestyle_name": "In case your pain increases, take pain relief medications."
+        }
+    ],
+    "instructions": [
+        {
+            "med_name": "Sumatriptan",
+            "medistr_name": "Contraindicated in the presence of CAD and cerebrovascular disease, brainstem aura and hemiplegic migraine",
+            "medistr_snomed_ct": "395892000"
+        },
+        {
+            "med_name": "Sumatriptan",
+            "medistr_name": "Not to be taken by patients having uncontrolled hypertension.",
+            "medistr_snomed_ct": "395892001"
+        },
+        {
+            "med_name": "Verapamil",
+            "medistr_name": "Contraindicated in patients of severe hypertension",
+            "medistr_snomed_ct": "372754009"
+        },
+        {
+            "med_name": "Verapamil",
+            "medistr_name": "Not be taken by patients having congestive cardiac failure",
+            "medistr_snomed_ct": "372754008"
+        }
+    ]
+}
+```
+
+### Request
+|Category|Value|
+|-----------|--------|
+|Http request| `GET`|
+|URL| https://api.parchaa.com/api/cdss/getAllData |
+
+### Request Parameters in Body
+Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
+In case of any error, please contact Parchaa.
+
+|Field |Type| Description|
+|------|----|------------|
+|cc_name  | String |Chief Complaint Name |
+|cc_snomed_ct| String |Chief Complaint Snomed Ct code |
+|diag_name  | String |Diagnosis Name |
+|diag_snomed_ct| String |Diagnosis Snomed Ct code |
+
+
+### Response Parameters
+
+####Status Code:  202  OK
+|Field |Type| Description|
+|------|----|------------|
+|------|----|------------|
+| message | String | Success message |
+| investigations | Array | Array of instructions |
+| inv_name | String | Name of the investigation |
+| inv_snomed_ct | String | Snomed Ct code of the investigation |
+| medications | Array | Array of medications |
+| med_name | String | Name of the medicine |
+| med_snomed_ct | String | Snomed Ct code of the medicine |
+| vitalSigns | Array | Array of vital signs |
+| vital_name | String | Name of the vital sign |
+| vital_snomed_ct | String | Snomed Ct code of the vital sign |
+| lifestyleRecommendations | Array | Array of lifestyle recommendations |
+| lifestyle_name | String | Name of the lifestyle recommendation |
+| lifestyle_snomed_ct | String | Snomed Ct code of the lifestyle recommendation |
+| instructions | Array | array of medication instructions |
+| med_name | String | name of the medicine |
+| medistr_name | String | Name of the medication instruction for the given medicine |
+| medistr_snomed_ct | String | Snomed Ct code of the lmedication instruction for the given medicine |
+
+####Errors
+
+####Status Code:  400  Bad Request
+|Field |Type| Description|
+|------|----|------------|
+|statusCode|Integer| 400|
+|error|String| Bad Request |
+
+One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
+Or the requested data is not found in the database.
+
+####Status Code: 500
+|Field |Type| Description|
+|------|----|------------|
+|statusCode | Integer | 500 |
+|error | String| Internal server error |
+
+If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.
