@@ -478,55 +478,53 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <p><h1 id='parchaa-api-reference'>Parchaa Api reference</h1><div class="highlight"><pre class="highlight plaintext"><code>BaseURL: https://api.parchaa.com
+        <h1 id='parchaa-api-reference'>Parchaa Api reference</h1><div class="highlight"><pre class="highlight plaintext"><code>BaseURL: https://api.parchaa.com
 </code></pre></div>
 <p>Welcome to Parchaa, an AI healthcare company that provides intelligent healthcare systems
 for healthcare management. Our APIs are designed to help developers easily integrate with
 Parchaa and access our smart healthcare solutions. To get started, you will need client
 credentials provided by our cred-admin (contact rajveer@parchaa.com). Once you have your
 credentials, you can generate an access token using the &quot;/token&quot; endpoint, which can be used
-as a bearer token for all Parchaa APIs.</p></p>
+as a bearer token for all Parchaa APIs.</p>
 
-<p><h1 id='authentication'>Authentication</h1><h2 id='generate-token'>Generate Token</h2>
+<h1 id='authentication'>Authentication</h1><h2 id='generate-token'>Generate Token</h2>
 <blockquote>
 <p>Request</p>
-
-<p></blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">&#39;</span><span class="s1">axios</span><span class="dl">&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">qs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">&#39;</span><span class="s1">qs</span><span class="dl">&#39;</span><span class="p">);</span>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">qs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">qs</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">qs</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-  <span class="dl">&#39;</span><span class="s1">grant_type</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">client_credentials</span><span class="dl">&#39;</span><span class="p">,</span>
-  <span class="dl">&#39;</span><span class="s1">client_id</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">2kva7msbdrd8nc4cjkvc8vc841</span><span class="dl">&#39;</span><span class="p">,</span>
-  <span class="dl">&#39;</span><span class="s1">client_secret</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">j8ng0v0h7fms1kocibt9bpvmu4lrqgiu6084di2c0jm5p620ds2</span><span class="dl">&#39;</span>
+  <span class="dl">'</span><span class="s1">grant_type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">client_credentials</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">client_id</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2kva7msbdrd8nc4cjkvc8vc841</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">client_secret</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">j8ng0v0h7fms1kocibt9bpvmu4lrqgiu6084di2c0jm5p620ds2</span><span class="dl">'</span>
 <span class="p">});</span>
 <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">post</span><span class="dl">&#39;</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">https://api.parchaa.com/token</span><span class="dl">&#39;</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">post</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.parchaa.com/token</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">&#39;</span><span class="s1">Content-Type</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">application/x-www-form-urlencoded</span><span class="dl">&#39;</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/x-www-form-urlencoded</span><span class="dl">'</span>
   <span class="p">},</span>
   <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
-<span class="p">};</span></p></p>
+<span class="p">};</span>
 
-<p><span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
+<span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
 <span class="p">})</span>
 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>curl --location --request POST &#39;https://api.parchaa.com/token&#39; \
---header &#39;Content-Type: application/x-www-form-urlencoded&#39; \
---data-urlencode &#39;grant_type=client_credentials&#39; \
---data-urlencode &#39;client_id=2kva7msbdrd8nc4cjkvc8vc841&#39; \
---data-urlencode &#39;client_secret=j8ng0v0h7fms1kocibt9bpvmu4lrqgiu6084di2c0jm5p620ds2&#39;
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>curl --location --request POST 'https://api.parchaa.com/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_id=2kva7msbdrd8nc4cjkvc8vc841' \
+--data-urlencode 'client_secret=j8ng0v0h7fms1kocibt9bpvmu4lrqgiu6084di2c0jm5p620ds2'
 </code></pre></div>
 <blockquote>
 <p>Response</p>
-
-<p></blockquote>
+</blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZy
+    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZy
     I6IlJTMjU2In0.eyJzdWIiOiIya3ZhN21zYmRyZDhuYzRjamt2Yzh2Yzg0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb
     3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2Nzk0MDE0MDksImlzcyI6Imh0dHBzOlwvXC9jb2du
     aXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5NDA1MDA5
@@ -534,9 +532,9 @@ as a bearer token for all Parchaa APIs.</p></p>
     SIsImNsaWVudF9pZCI6IjJrdmE3bXNiZHJkOG5jNGNqa3ZjOHZjODQxIn0.b0DirG5DMDP0HLgtz99vQdU9j0CPk8WB9FljjcI6
     6IAZRu-vEd1h8GE0DJ3jd1CSMxNQYnB4gVASzrRi0-ipNcso1hO3pfSkclGYEtaQ-M9uakeWkKkHgOvl91uZLAERbhnj65Uk8wfq
     7A-oeG0T_dM9m7Fk12NxO1o9tZg4s8ibK1KFW7YZTIuFeXBzzoKYKIIyy1bdP-RI_5eP4M6giuAg30PJjEw-bp7h6sIQQOUbd2Do6p
-    gMIjiKlLPXBJD_rFOKx1EnULPWgHyWGgGfpuscEBKzv8YBCzMbXNyN4BWS3nW9B63GXBfB0ByuijyIuJDjO5wxanOfHNkjm3seCQ&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;expires_in&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;token_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bearer&quot;</span><span class="w">
+    gMIjiKlLPXBJD_rFOKx1EnULPWgHyWGgGfpuscEBKzv8YBCzMbXNyN4BWS3nW9B63GXBfB0ByuijyIuJDjO5wxanOfHNkjm3seCQ"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>All the parchaa api&#39;s are secured by the client_credentials auth method and for getting
@@ -570,12 +568,10 @@ this bearer token is used for al the API&#39;s of parchaa.</p>
 <td>Content-Type</td>
 <td>application/x-www-form-urlencoded</td>
 </tr>
-</tbody></table></p></p>
+</tbody></table>
 
 <p>This header is must to pass while requesting for token</p>
-
 <h3 id='request-parameters-in-body'>Request Parameters in Body</h3>
-
 <p>We need to pass these parameters in request body as x-www-form-urlencoded</p>
 
 <table><thead>
@@ -613,9 +609,7 @@ Can be a combination of any custom scopes associated with an app client.
  server uses all custom scopes associated with the client.</p>
 
 <p>Optional. Only used if the grant_type is client_credentials.</p>
-
 <h3 id='response'>Response</h3>
-
 <table><thead>
 <tr>
 <th>Field</th>
@@ -636,44 +630,44 @@ Can be a combination of any custom scopes associated with an app client.
 </tr>
 </tbody></table>
 
-<p><h1 id='registration-through-mobile'>Registration through mobile</h1><h2 id='send-otp-to-given-mobile-number'>Send OTP to given Mobile number</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">&#39;</span><span class="s1">axios</span><span class="dl">&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-  <span class="dl">&quot;</span><span class="s2">mobile</span><span class="dl">&quot;</span><span class="p">:</span> <span class="dl">&quot;</span><span class="s2">9521752170</span><span class="dl">&quot;</span>
-<span class="p">});</span></p>
 
-<p><span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">post</span><span class="dl">&#39;</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">https://api.parchaa.com/api/abdm/registration/mobile/generateOtp</span><span class="dl">&#39;</span><span class="p">,</span>
+<h1 id='registration-through-mobile'>Registration through mobile</h1><h2 id='send-otp-to-given-mobile-number'>Send OTP to given Mobile number</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+  <span class="dl">"</span><span class="s2">mobile</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9521752170</span><span class="dl">"</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">post</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.parchaa.com/api/abdm/registration/mobile/generateOtp</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">&#39;</span><span class="s1">accept</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1"><em>/</em></span><span class="dl">&#39;</span><span class="p">,</span>
-    <span class="dl">&#39;</span><span class="s1">Content-Type</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">application/json</span><span class="dl">&#39;</span><span class="p">,</span>
-    <span class="dl">&#39;</span><span class="s1">Authorization</span><span class="dl">&#39;</span><span class="p">:</span> <span class="dl">&#39;</span><span class="s1">Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2NzkzODk5MzEsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5MzkzNTMxLCJpYXQiOjE2NzkzODk5MzEsInZlcnNpb24iOjIsImp0aSI6Ijk2NmE5MDY3LTEwY2ItNDAxNS04OTBhLTM3MjQzOTk4MjAzZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.axFtyv5B3BIO3fxEa5jdg5xjvQPyA1WByXhY8co4pXBJ6FG4kh5mMyOkSC5BxNmVfuxu_brflZ6CGq9qIj78rut2xgAfkp5K_GwDZYnHHPdUVXWFY69IinplmE3unl_XGxtPWZt4ox_POzhP3PPMLMJanBEi4mEByDgLvyCv4WF2eThUfhlj6QAlDIJ0K0ivhxH3GyAmft_PdqxpDvm_qIwDZ4D6XT3BUQJit7bdtVXZkkhcvDUoAH2BmwHTZtv2F2ipvYgfrpIp3e520bJw1Stcgj1QB3K7HhR01KVtRN3E-it-Y1onF_BHAfl4KhwM6m4do1IJVFqFBCh96Th-3g</span><span class="dl">&#39;</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">accept</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">*/*</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2NzkzODk5MzEsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5MzkzNTMxLCJpYXQiOjE2NzkzODk5MzEsInZlcnNpb24iOjIsImp0aSI6Ijk2NmE5MDY3LTEwY2ItNDAxNS04OTBhLTM3MjQzOTk4MjAzZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.axFtyv5B3BIO3fxEa5jdg5xjvQPyA1WByXhY8co4pXBJ6FG4kh5mMyOkSC5BxNmVfuxu_brflZ6CGq9qIj78rut2xgAfkp5K_GwDZYnHHPdUVXWFY69IinplmE3unl_XGxtPWZt4ox_POzhP3PPMLMJanBEi4mEByDgLvyCv4WF2eThUfhlj6QAlDIJ0K0ivhxH3GyAmft_PdqxpDvm_qIwDZ4D6XT3BUQJit7bdtVXZkkhcvDUoAH2BmwHTZtv2F2ipvYgfrpIp3e520bJw1Stcgj1QB3K7HhR01KVtRN3E-it-Y1onF_BHAfl4KhwM6m4do1IJVFqFBCh96Th-3g</span><span class="dl">'</span><span class="p">,</span>
   <span class="p">},</span>
   <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
-<span class="p">};</span></p>
+<span class="p">};</span>
 
-<p><span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
+<span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
 <span class="p">})</span>
 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>curl --location --request POST &#39;https://api.parchaa.com/api/abdm/registration/mobile/generateOtp&#39; \
---header &#39;accept: <em>/</em>&#39; \
---header &#39;Content-Type: application/json&#39; \
---header &#39;Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2NzkzODk5MzEsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5MzkzNTMxLCJpYXQiOjE2NzkzODk5MzEsInZlcnNpb24iOjIsImp0aSI6Ijk2NmE5MDY3LTEwY2ItNDAxNS04OTBhLTM3MjQzOTk4MjAzZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.axFtyv5B3BIO3fxEa5jdg5xjvQPyA1WByXhY8co4pXBJ6FG4kh5mMyOkSC5BxNmVfuxu_brflZ6CGq9qIj78rut2xgAfkp5K_GwDZYnHHPdUVXWFY69IinplmE3unl_XGxtPWZt4ox_POzhP3PPMLMJanBEi4mEByDgLvyCv4WF2eThUfhlj6QAlDIJ0K0ivhxH3GyAmft_PdqxpDvm_qIwDZ4D6XT3BUQJit7bdtVXZkkhcvDUoAH2BmwHTZtv2F2ipvYgfrpIp3e520bJw1Stcgj1QB3K7HhR01KVtRN3E-it-Y1onF_BHAfl4KhwM6m4do1IJVFqFBCh96Th-3g&#39; \
---data-raw &#39;{
-  &quot;mobile&quot;: &quot;9521752170&quot;
-}&#39;
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>curl --location --request POST 'https://api.parchaa.com/api/abdm/registration/mobile/generateOtp' \
+--header 'accept: */*' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3ZhM01TdmRCYlZYVzdvOWhWOVhBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI2bGYzaTAzaXFtZWFtdXNkMnZiMnNjdDV0MSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicnNpXC9yZWFkIHJzaVwvd3JpdGUiLCJhdXRoX3RpbWUiOjE2NzkzODk5MzEsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfa1ZwR2k5OFdnIiwiZXhwIjoxNjc5MzkzNTMxLCJpYXQiOjE2NzkzODk5MzEsInZlcnNpb24iOjIsImp0aSI6Ijk2NmE5MDY3LTEwY2ItNDAxNS04OTBhLTM3MjQzOTk4MjAzZCIsImNsaWVudF9pZCI6IjZsZjNpMDNpcW1lYW11c2QydmIyc2N0NXQxIn0.axFtyv5B3BIO3fxEa5jdg5xjvQPyA1WByXhY8co4pXBJ6FG4kh5mMyOkSC5BxNmVfuxu_brflZ6CGq9qIj78rut2xgAfkp5K_GwDZYnHHPdUVXWFY69IinplmE3unl_XGxtPWZt4ox_POzhP3PPMLMJanBEi4mEByDgLvyCv4WF2eThUfhlj6QAlDIJ0K0ivhxH3GyAmft_PdqxpDvm_qIwDZ4D6XT3BUQJit7bdtVXZkkhcvDUoAH2BmwHTZtv2F2ipvYgfrpIp3e520bJw1Stcgj1QB3K7HhR01KVtRN3E-it-Y1onF_BHAfl4KhwM6m4do1IJVFqFBCh96Th-3g' \
+--data-raw '{
+  "mobile": "9521752170"
+}'
 </code></pre></div>
 <blockquote>
 <p>Response</p>
-
-<p></blockquote>
+</blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">&quot;txnId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;f78e389d-4011-429a-b629-2f40fee3ed2&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="nl">&quot;existing&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="nl">"txnId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f78e389d-4011-429a-b629-2f40fee3ed2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"existing"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request'>Request</h3>
 <table><thead>
@@ -706,12 +700,10 @@ Can be a combination of any custom scopes associated with an app client.
 <td>Authorization</td>
 <td>Bearer eyJraWQiOiJaMjZxdHo3MXlPZGNHcVVQSXBmSTVKc3Zehbfuejkansdfh</td>
 </tr>
-</tbody></table></p></p>
+</tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -729,7 +721,6 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>Please provide the mobile number on which OTP needs to be sent.</p>
-
 <h3 id='response-parameters'>Response Parameters</h3><h4 id='status-code-202-ok'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -828,7 +819,6 @@ Can be a combination of any custom scopes associated with an app client.
   </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI5Mzc3NjEyMTM2IiwiY2xpZW50SWQiOiJTQlhfMDAyMjU0Iiwic3lzdGVtIjoiQUJIQS1OIiwiZXhwIjoxNjcyOTg4MzA3LCJpYXQiOjE2NzI5ODY1MDcsInR4bklkIjoiMzVhOGVhMjctMTI1Mi00ZDNhLWI1NjgtNGE2MzRmZmE1MDcxIn0.AquNlPILLuc6P0wb2LhtYx-0LMTTejk1kPBrssYL3ZyPnDpdudDDxDfokpYTiLCuaW4cD6iatnP0Mlb6mTaC7ffyMd0V-XTkyTjuO4sJ2vCzMvwIB-jePM8CdfBQYtSjJqJLWYqWbdSfjjuTKjE0vQc-lyyhtPMfS-eNzmns9nn89-RgvELNtrfHmIiGSjZMvdg5XdmwWtx5-Gf7rY2YHwgQw3VeOzZX58nEkOTvgPdzpCpmWE45rTK-EuagDT0t7DutzDHa7jk4egC4WeW1ILkiBsrzUJXvMFNwQn_wsJBrnGonIr9OOFZ81nShG88cnbEX4ovXeKdynNBfiI9dQUKMnOMAAZ5Cfbkz_nJ92rIUDMsedS8LCvKvO-jLTQhxb99zt4wpi8kfQa12jgFTddV8yKXh6WQKQvs8V3ZjLo2ykVntnGcBThG0rnqIPVvDzJ4Qq4h6vJ8sGe7kiBXvspGMP4MZQ8t78cBnKKmAN9OyMZiDaWlNa4t2ONhXfhu-p6wM4a5twEmpMZ7dbvuJTTFQl5Tc5fYHc3_0Trh8r3Tb3u4T4lhsacz0WF0ONZEQ0fgGxBwvnnTAPJsUD2DAn9xav82xWayAyMPLk_f-oupMowttx2nWeNQcIGGxLR8azEO_N2OmkeZmibU9Mjl3ZTecrBJfCHyt4PrRP0ywF-I"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-2'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -844,9 +834,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/abdm/registration/mobile/verifyOtp</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-2'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -864,9 +852,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-2'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -887,7 +873,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>462837</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-2'>Response Parameters</h3><h4 id='status-code-202-ok-2'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -1006,7 +991,6 @@ Can be a combination of any custom scopes associated with an app client.
   </span><span class="nl">"new"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-3'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -1022,9 +1006,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-3'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1042,9 +1024,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-3'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -1110,7 +1090,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI5Mzc3NjEyMTM2IiwiY2xpZW50SWQiOiJTQlhfMDAyMjU0Iiwic3lzdGVtIjoiQUJIQS1OIiwiZXhwIjoxNjczMzI2Mzk1LCJpYXQ</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-3'>Response Parameters</h3><h4 id='status-code-202-ok-3'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -1278,7 +1257,6 @@ Can be a combination of any custom scopes associated with an app client.
 <p>Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code></code></pre></div><h3 id='request-4'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -1294,9 +1272,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-4'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1314,9 +1290,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-4'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -1332,7 +1306,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-4'>Response Parameters</h3><h4 id='status-code-202-ok-4'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -1423,7 +1396,6 @@ Can be a combination of any custom scopes associated with an app client.
   </span><span class="nl">"txnId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35a8ea27-1252-4d3a-b568-4a634ffa5071"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -1439,9 +1411,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/abdm/registration/aadhaar/generateOtp</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1459,9 +1429,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -1477,7 +1445,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>652565890385</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters'>Response Parameters</h3><h4 id='status-code-202-ok'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -1549,7 +1516,6 @@ Can be a combination of any custom scopes associated with an app client.
   </span><span class="nl">"txnId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a825f76b-0696-40f3-864c-5a3a5b389a83"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-2'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -1565,9 +1531,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/abdm/registration/aadhaar/verifyOtp</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-2'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1585,9 +1549,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-2'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -1608,7 +1570,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>110220</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-2'>Response Parameters</h3><h4 id='status-code-202-ok-2'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -1680,7 +1641,6 @@ Can be a combination of any custom scopes associated with an app client.
   </span><span class="nl">"txnId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35a8ea27-1252-4d3a-b568-4a634ffa5071"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-3'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -1696,9 +1656,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/abdm/registration/aadhaar/generateMobileOtp</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-3'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1716,9 +1674,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-3'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -1739,7 +1695,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>9377612136</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-3'>Response Parameters</h3><h4 id='status-code-202-ok-3'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -1811,7 +1766,6 @@ Can be a combination of any custom scopes associated with an app client.
   </span><span class="nl">"txnId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a825f76b-0696-40f3-864c-5a3a5b389a83"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-4'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -1827,9 +1781,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/abdm/registration/aadhaar/verifyMobileOtp</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-4'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1847,9 +1799,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-4'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -1870,7 +1820,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>110220</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-4'>Response Parameters</h3><h4 id='status-code-202-ok-4'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -1968,7 +1917,6 @@ Can be a combination of any custom scopes associated with an app client.
   </span><span class="nl">"new"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-5'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -1984,9 +1932,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/abdm/registration/aadhaar/createHealthId</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-5'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2004,9 +1950,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-5'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -2027,7 +1971,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>deepak.pant</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-5'>Response Parameters</h3><h4 id='status-code-202-ok-5'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -2208,7 +2151,6 @@ Can be a combination of any custom scopes associated with an app client.
     </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -2224,9 +2166,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/abdm/login/mobile/generateOtp</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2244,9 +2184,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint.</p>
-
 <h3 id='request-parameters-in-body'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -2262,7 +2200,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>9521752170</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters'>Response Parameters</h3><h4 id='status-code-202-ok'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -2373,7 +2310,6 @@ Can be a combination of any custom scopes associated with an app client.
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-2'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -2389,9 +2325,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/abdm/login/mobile/verifyOtp</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-2'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2409,9 +2343,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-2'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -2432,7 +2364,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>412211</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-2'>Response Parameters</h3><h4 id='status-code-202-ok-2'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -2546,7 +2477,6 @@ Can be a combination of any custom scopes associated with an app client.
     </span><span class="nl">"refreshExpiresIn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1296000"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-3'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -2562,9 +2492,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/abdm/login/mobile/confirm</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-3'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2582,9 +2510,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint.</p>
-
 <h3 id='request-parameters-in-body-3'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -2605,7 +2531,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>66fd675e-177a-45a8-8be1-419527283a53</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-3'>Response Parameters</h3><h4 id='status-code-202-ok-3'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -2685,7 +2610,6 @@ Can be a combination of any custom scopes associated with an app client.
 <p>Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code></code></pre></div><h3 id='request'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -2701,9 +2625,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='headers'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2721,9 +2643,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -2739,7 +2659,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters'>Response Parameters</h3><h4 id='status-code-202-ok'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -2797,7 +2716,6 @@ Can be a combination of any custom scopes associated with an app client.
 <p>Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code></code></pre></div><h3 id='request-2'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -2813,9 +2731,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-2'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2833,9 +2749,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-2'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -2851,7 +2765,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-2'>Response Parameters</h3><h4 id='status-code-202-ok-2'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -2909,7 +2822,6 @@ Can be a combination of any custom scopes associated with an app client.
 <p>Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code></code></pre></div><h3 id='request-3'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -2925,9 +2837,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-3'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2945,9 +2855,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-3'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -2963,7 +2871,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-3'>Response Parameters</h3><h4 id='status-code-202-ok-3'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -3056,7 +2963,6 @@ Can be a combination of any custom scopes associated with an app client.
     </span><span class="nl">"txnId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91b9a36c-4501-4d8d-a917-84b82666b806"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -3072,9 +2978,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/abdm/login/healthId/generateOtp</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3092,9 +2996,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -3118,7 +3020,6 @@ Can be a combination of any custom scopes associated with an app client.
 
 <p>authMode can be MOBILE_OTP/ AADHAAR_OTP if you choose authMode as MOBILE_OTP then please use verify
  by Mobile OTP and if you choose AADHAAR_OTP then please go with Verify by AADHAAR OTP endpoints</p>
-
 <h3 id='response-parameters'>Response Parameters</h3><h4 id='status-code-202-ok'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -3213,7 +3114,6 @@ Can be a combination of any custom scopes associated with an app client.
     </span><span class="nl">"refreshExpiresIn"</span><span class="p">:</span><span class="w"> </span><span class="mi">1296000</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-2'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -3229,9 +3129,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/abdm/login/healthId/verifyMobileOtp</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-2'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3249,9 +3147,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-2'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -3272,7 +3168,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>728061</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-2'>Response Parameters</h3><h4 id='status-code-202-ok-2'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -3381,7 +3276,6 @@ Can be a combination of any custom scopes associated with an app client.
     </span><span class="nl">"refreshExpiresIn"</span><span class="p">:</span><span class="w"> </span><span class="mi">1296000</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-3'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -3397,9 +3291,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/abdm/login/healthId/verifyAadhaarOtp</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-3'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3417,9 +3309,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-3'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -3440,7 +3330,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>169813</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-3'>Response Parameters</h3><h4 id='status-code-202-ok-3'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -3519,7 +3408,6 @@ Can be a combination of any custom scopes associated with an app client.
 <p>Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code></code></pre></div><h3 id='request'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -3535,9 +3423,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/abdm/profile/{token}</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3551,17 +3437,12 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='path-parameters'>Path Parameters</h3>
-
 <p>|Key | Type |Value|
 |-------------------|----------------------|
 |token | String | hgtrskfdbhlvhsrujngsfbrstjnfd|</p>
-
 <h3 id='request-parameters-in-body'>Request Parameters in Body</h3>
-
 <p>No parameters required as this is a Get request</p>
-
 <h3 id='response-parameters'>Response Parameters</h3><h4 id='status-code-202-ok'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -3619,7 +3500,6 @@ Can be a combination of any custom scopes associated with an app client.
 <p>Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code></code></pre></div><h3 id='request-2'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -3635,9 +3515,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-2'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3655,9 +3533,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-2'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -3673,7 +3549,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-2'>Response Parameters</h3><h4 id='status-code-202-ok-2'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -3731,7 +3606,6 @@ Can be a combination of any custom scopes associated with an app client.
 <p>Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code></code></pre></div><h3 id='request-3'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -3747,9 +3621,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-3'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3767,9 +3639,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-3'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -3785,7 +3655,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-3'>Response Parameters</h3><h4 id='status-code-202-ok-3'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -3843,7 +3712,6 @@ Can be a combination of any custom scopes associated with an app client.
 <p>Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code></code></pre></div><h3 id='request-4'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -3859,9 +3727,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-4'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3879,9 +3745,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-4'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -3897,7 +3761,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-4'>Response Parameters</h3><h4 id='status-code-202-ok-4'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -3955,7 +3818,6 @@ Can be a combination of any custom scopes associated with an app client.
 <p>Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code></code></pre></div><h3 id='request-5'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -3971,9 +3833,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-5'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3991,9 +3851,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-5'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -4009,7 +3867,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td></td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-5'>Response Parameters</h3><h4 id='status-code-202-ok-5'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -4137,7 +3994,6 @@ Can be a combination of any custom scopes associated with an app client.
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -4153,9 +4009,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/users/create</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -4173,9 +4027,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -4236,7 +4088,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>[&quot;shivam1415@sbx&quot;]</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters'>Response Parameters</h3><h4 id='status-code-202-ok'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -4393,7 +4244,6 @@ Can be a combination of any custom scopes associated with an app client.
     </span><span class="nl">"fhirId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-2'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -4409,9 +4259,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/users/update</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-2'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -4429,9 +4277,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-2'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -4497,7 +4343,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>[&quot;shivam1415@sbx&quot;]</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-2'>Response Parameters</h3><h4 id='status-code-202-ok-2'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -4655,7 +4500,6 @@ Can be a combination of any custom scopes associated with an app client.
     </span><span class="nl">"fhirId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-3'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -4671,9 +4515,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/users/findByMobile</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-3'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -4691,9 +4533,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-3'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -4711,7 +4551,6 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>Enter the mobile number for which you want to search in database</p>
-
 <h3 id='response-parameters-3'>Response Parameters</h3><h4 id='status-code-202-ok-3'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -4849,7 +4688,6 @@ Can be a combination of any custom scopes associated with an app client.
     </span><span class="nl">"fhirId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-4'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -4865,9 +4703,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/users/findById</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-4'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -4885,9 +4721,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-4'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -4903,7 +4737,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>1</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-4'>Response Parameters</h3><h4 id='status-code-202-ok-4'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -5046,7 +4879,6 @@ Can be a combination of any custom scopes associated with an app client.
     </span><span class="nl">"affected"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-5'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -5062,9 +4894,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/users/delete</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-5'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -5082,9 +4912,7 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-5'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type</p>
 
 <table><thead>
@@ -5100,7 +4928,6 @@ Can be a combination of any custom scopes associated with an app client.
 <td>1</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-5'>Response Parameters</h3><h4 id='status-code-202-ok-5'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -5189,7 +5016,6 @@ Can be a combination of any custom scopes associated with an app client.
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><h3 id='request-6'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -5205,9 +5031,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/users/findAll</td>
 </tr>
 </tbody></table>
-
 <h3 id='headers-6'>Headers</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -5225,11 +5049,8 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 <p>In Authorization header we have to pass the token which we received from /token endpoint</p>
-
 <h3 id='request-parameters-in-body-6'>Request Parameters in Body</h3>
-
 <p>No parameters are required for this request</p>
-
 <h3 id='response-parameters-6'>Response Parameters</h3><h4 id='status-code-202-ok-6'>Status Code:  202  OK</h4>
 <p>This request will return the array of user object and the user object is defined below</p>
 
@@ -5315,7 +5136,43 @@ Can be a combination of any custom scopes associated with an app client.
 </tbody></table>
 
 
-<h1 id='cdss-apis'>CDSS APIs</h1><h2 id='getinvestigations'>getInvestigations</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<h1 id='cdss-apis'>CDSS APIs</h1>
+
+<p>This section deals with the APIs associated with the Parchaa CDSS. In paticular, the below APIs are designed to get the following data from the Parchaa CDSS database.</p>
+
+<ol>
+<li>Investigations</li>
+<li>Medications</li>
+<li>Vital Signs</li>
+<li>Lifestyle Recommendations</li>
+<li>Medication Instructions</li>
+</ol>
+
+<p>Parchaa stores all the above data corresponding to a particular chief complaint and diagnosis in its database. By using the below APIs, the client can retrieve the above data as required.
+For all the below APIs, the request object is of same form as shown.</p>
+
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="nl">cc</span><span class="p">:{</span>
+        <span class="na">cc_name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">//Name of the chief complaint as present in the Parchaa Database</span>
+        <span class="na">cc_snomed_ct</span><span class="p">:</span> <span class="nb">String</span> <span class="c1">//Snomed CT code of the chief complaint as present in the Parchaa Database</span>
+    <span class="p">}</span>
+    <span class="nl">diag</span><span class="p">:{</span>
+        <span class="na">diag_name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">//Name of the diagnosis as present in the Parchaa Database</span>
+        <span class="na">diag_snomed_ct</span><span class="p">:</span> <span class="nb">String</span> <span class="c1">//Snomed CT code of the diagnosis as present in the Parchaa Database</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div>
+
+<p>Note:
+1. All the fields in the request object are required. If any of the above fields is not present, the request will be rejected.
+2. The given diagnosis with diag_snomed_ct must be a valid diagnosis for the given chief complaint with cc_snomed_ct. If not, the request will be rejected.</p>
+
+<h2 id='getinvestigations'>getInvestigations</h2>
+
+<p>The API getInvestigations will return all the investigation recommendations for a given diagnosis that are present in the Parchaa CDSS database. Please follow the above guidelines for sending the request object.</p>
+
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="dl">"</span><span class="s2">cc</span><span class="dl">"</span><span class="p">:{</span>
         <span class="dl">"</span><span class="s2">cc_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Headache</span><span class="dl">"</span><span class="p">,</span>
@@ -5357,9 +5214,11 @@ Can be a combination of any custom scopes associated with an app client.
   }
 }'
 </code></pre></div>
+
 <blockquote>
 <p>Response</p>
 </blockquote>
+
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Investigations retrieved successfully"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"investigations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5374,7 +5233,6 @@ Can be a combination of any custom scopes associated with an app client.
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -5390,9 +5248,7 @@ Can be a combination of any custom scopes associated with an app client.
 <td>https://api.parchaa.com/api/cdss/getInvestigations</td>
 </tr>
 </tbody></table>
-
 <h3 id='request-parameters-in-body'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
 In case of any error, please contact Parchaa.</p>
 
@@ -5424,7 +5280,6 @@ In case of any error, please contact Parchaa.</p>
 <td>Diagnosis Snomed Ct code</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters'>Response Parameters</h3><h4 id='status-code-202-ok'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -5475,7 +5330,7 @@ In case of any error, please contact Parchaa.</p>
 </tbody></table>
 
 <p>One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
-Or the requested data is not found in the database.</p>
+Or the requested data is not found in the Parcha CDSS database.</p>
 <h4 id='status-code-500'>Status Code: 500</h4>
 <table><thead>
 <tr>
@@ -5497,7 +5352,9 @@ Or the requested data is not found in the database.</p>
 </tbody></table>
 
 <p>If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.</p>
-<h2 id='getmedications'>getMedications</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<h2 id='getmedications'>getMedications</h2>
+<p>The API getMedications will return all the medication recommendations for a given diagnosis that are present in the Parchaa CDSS database. Please follow the above guidelines for sending the request object.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="dl">"</span><span class="s2">cc</span><span class="dl">"</span><span class="p">:{</span>
         <span class="dl">"</span><span class="s2">cc_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Headache</span><span class="dl">"</span><span class="p">,</span>
@@ -5539,9 +5396,11 @@ Or the requested data is not found in the database.</p>
   }
 }'
 </code></pre></div>
+
 <blockquote>
 <p>Response</p>
 </blockquote>
+
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medications retrived successfully"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"medications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5556,7 +5415,6 @@ Or the requested data is not found in the database.</p>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-2'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -5572,9 +5430,7 @@ Or the requested data is not found in the database.</p>
 <td>https://api.parchaa.com/api/cdss/getMedications</td>
 </tr>
 </tbody></table>
-
 <h3 id='request-parameters-in-body-2'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
 In case of any error, please contact Parchaa.</p>
 
@@ -5606,7 +5462,6 @@ In case of any error, please contact Parchaa.</p>
 <td>Diagnosis Snomed Ct code</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-2'>Response Parameters</h3><h4 id='status-code-202-ok-2'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -5615,11 +5470,6 @@ In case of any error, please contact Parchaa.</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>------</td>
-<td>----</td>
-<td>------------</td>
-</tr>
 <tr>
 <td>message</td>
 <td>String</td>
@@ -5684,7 +5534,9 @@ Or the requested data is not found in the database.</p>
 </tbody></table>
 
 <p>If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.</p>
-<h2 id='getvitalsigns'>getVitalSigns</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<h2 id='getvitalsigns'>getVitalSigns</h2>
+<p>The API getVitalSigns will return all the vital sign recommendations for a given diagnosis that are present in the Parchaa CDSS database. Please follow the above guidelines for sending the request object.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="dl">"</span><span class="s2">cc</span><span class="dl">"</span><span class="p">:{</span>
         <span class="dl">"</span><span class="s2">cc_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Headache</span><span class="dl">"</span><span class="p">,</span>
@@ -5726,9 +5578,11 @@ Or the requested data is not found in the database.</p>
   }
 }'
 </code></pre></div>
+
 <blockquote>
 <p>Response</p>
 </blockquote>
+
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vital Signs retrived successfully"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"vitalSigns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5743,7 +5597,6 @@ Or the requested data is not found in the database.</p>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-3'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -5759,9 +5612,7 @@ Or the requested data is not found in the database.</p>
 <td>https://api.parchaa.com/api/cdss/getVitalSigns</td>
 </tr>
 </tbody></table>
-
 <h3 id='request-parameters-in-body-3'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
 In case of any error, please contact Parchaa.</p>
 
@@ -5793,7 +5644,6 @@ In case of any error, please contact Parchaa.</p>
 <td>Diagnosis Snomed Ct code</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-3'>Response Parameters</h3><h4 id='status-code-202-ok-3'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -5802,11 +5652,6 @@ In case of any error, please contact Parchaa.</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>------</td>
-<td>----</td>
-<td>------------</td>
-</tr>
 <tr>
 <td>message</td>
 <td>String</td>
@@ -5871,7 +5716,9 @@ Or the requested data is not found in the database.</p>
 </tbody></table>
 
 <p>If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.</p>
-<h2 id='getlifestylerecommendations'>getLifestyleRecommendations</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<h2 id='getlifestylerecommendations'>getLifestyleRecommendations</h2>
+<p>The API getLifestyleRecommendations will return all the lifestyle recommendations for a given diagnosis that are present in the Parchaa CDSS database. Please follow the above guidelines for sending the request object.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="dl">"</span><span class="s2">cc</span><span class="dl">"</span><span class="p">:{</span>
         <span class="dl">"</span><span class="s2">cc_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Headache</span><span class="dl">"</span><span class="p">,</span>
@@ -5913,9 +5760,11 @@ Or the requested data is not found in the database.</p>
   }
 }'
 </code></pre></div>
+
 <blockquote>
 <p>Response</p>
 </blockquote>
+
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lifestyle Recommendations retrived successfully"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"lifestyleRecommendations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5930,7 +5779,6 @@ Or the requested data is not found in the database.</p>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-4'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -5946,9 +5794,7 @@ Or the requested data is not found in the database.</p>
 <td>https://api.parchaa.com/api/cdss/getLifestyleRecommendations</td>
 </tr>
 </tbody></table>
-
 <h3 id='request-parameters-in-body-4'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
 In case of any error, please contact Parchaa.</p>
 
@@ -5980,7 +5826,6 @@ In case of any error, please contact Parchaa.</p>
 <td>Diagnosis Snomed Ct code</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-4'>Response Parameters</h3><h4 id='status-code-202-ok-4'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -5989,11 +5834,6 @@ In case of any error, please contact Parchaa.</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>------</td>
-<td>----</td>
-<td>------------</td>
-</tr>
 <tr>
 <td>message</td>
 <td>String</td>
@@ -6058,7 +5898,9 @@ Or the requested data is not found in the database.</p>
 </tbody></table>
 
 <p>If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.</p>
-<h2 id='getmedicationinstructions'>getMedicationInstructions</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<h2 id='getmedicationinstructions'>getMedicationInstructions</h2>
+<p>The API getMedicationInstructions will return all the medication instruction recommendations for a given diagnosis that are present in the Parchaa CDSS database. Please follow the above guidelines for sending the request object.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="dl">"</span><span class="s2">cc</span><span class="dl">"</span><span class="p">:{</span>
         <span class="dl">"</span><span class="s2">cc_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Headache</span><span class="dl">"</span><span class="p">,</span>
@@ -6100,9 +5942,11 @@ Or the requested data is not found in the database.</p>
   }
 }'
 </code></pre></div>
+
 <blockquote>
 <p>Response</p>
 </blockquote>
+
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medication Instructions retrived successfully"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -6129,7 +5973,6 @@ Or the requested data is not found in the database.</p>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-5'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -6145,9 +5988,7 @@ Or the requested data is not found in the database.</p>
 <td>https://api.parchaa.com/api/cdss/getMedicationInstructions</td>
 </tr>
 </tbody></table>
-
 <h3 id='request-parameters-in-body-5'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
 In case of any error, please contact Parchaa.</p>
 
@@ -6179,7 +6020,6 @@ In case of any error, please contact Parchaa.</p>
 <td>Diagnosis Snomed Ct code</td>
 </tr>
 </tbody></table>
-
 <h3 id='response-parameters-5'>Response Parameters</h3><h4 id='status-code-202-ok-5'>Status Code:  202  OK</h4>
 <table><thead>
 <tr>
@@ -6188,11 +6028,6 @@ In case of any error, please contact Parchaa.</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>------</td>
-<td>----</td>
-<td>------------</td>
-</tr>
 <tr>
 <td>message</td>
 <td>String</td>
@@ -6262,7 +6097,9 @@ Or the requested data is not found in the database.</p>
 </tbody></table>
 
 <p>If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.</p>
-<h2 id='getalldata'>getAllData</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<h2 id='getalldata'>getAllData</h2>
+<p>The API getAllData will return all the recommendations (investigations, medications, vital signs, medication instructions, lifestyle recommendations) for a given diagnosis that are present in the Parchaa CDSS database. Please follow the above guidelines for sending the request object.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="dl">"</span><span class="s2">cc</span><span class="dl">"</span><span class="p">:{</span>
         <span class="dl">"</span><span class="s2">cc_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Headache</span><span class="dl">"</span><span class="p">,</span>
@@ -6304,76 +6141,77 @@ Or the requested data is not found in the database.</p>
   }
 }'
 </code></pre></div>
+
 <blockquote>
 <p>Response</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All data retrieved successfully"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"investigations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+<p><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;All data retrieved successfully&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;investigations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"inv_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"312474003"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"inv_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blood Electrolyte levels"</span><span class="w">
+            </span><span class="nl">&quot;inv_snomed_ct&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;312474003&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;inv_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Blood Electrolyte levels&quot;</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"inv_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"396205005"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"inv_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CT brain"</span><span class="w">
+            </span><span class="nl">&quot;inv_snomed_ct&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;396205005&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;inv_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CT brain&quot;</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"medications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">&quot;medications&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"med_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"395892000"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sumatriptan"</span><span class="w">
+            </span><span class="nl">&quot;med_snomed_ct&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;395892000&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;med_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sumatriptan&quot;</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"med_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"372754009"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verapamil"</span><span class="w">
+            </span><span class="nl">&quot;med_snomed_ct&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;372754009&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;med_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Verapamil&quot;</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"vitalSigns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">&quot;vitalSigns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"vital_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"78564009"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"vital_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pulse rate"</span><span class="w">
+            </span><span class="nl">&quot;vital_snomed_ct&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;78564009&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;vital_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pulse rate&quot;</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"vital_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"252465000"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"vital_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pulse oximetry"</span><span class="w">
+            </span><span class="nl">&quot;vital_snomed_ct&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;252465000&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;vital_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pulse oximetry&quot;</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"lifestyleRecommendations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">&quot;lifestyleRecommendations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"lifestyle_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"lifestyle_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Drink 4 to 5 glasses of water everyday."</span><span class="w">
+            </span><span class="nl">&quot;lifestyle_snomed_ct&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1234&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;lifestyle_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Drink 4 to 5 glasses of water everyday.&quot;</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"lifestyle_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1235"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"lifestyle_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In case your pain increases, take pain relief medications."</span><span class="w">
+            </span><span class="nl">&quot;lifestyle_snomed_ct&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1235&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;lifestyle_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;In case your pain increases, take pain relief medications.&quot;</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">&quot;instructions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sumatriptan"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"medistr_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contraindicated in the presence of CAD and cerebrovascular disease, brainstem aura and hemiplegic migraine"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"medistr_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"395892000"</span><span class="w">
+            </span><span class="nl">&quot;med_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sumatriptan&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;medistr_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Contraindicated in the presence of CAD and cerebrovascular disease, brainstem aura and hemiplegic migraine&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;medistr_snomed_ct&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;395892000&quot;</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sumatriptan"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"medistr_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not to be taken by patients having uncontrolled hypertension."</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"medistr_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"395892001"</span><span class="w">
+            </span><span class="nl">&quot;med_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sumatriptan&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;medistr_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Not to be taken by patients having uncontrolled hypertension.&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;medistr_snomed_ct&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;395892001&quot;</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verapamil"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"medistr_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contraindicated in patients of severe hypertension"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"medistr_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"372754009"</span><span class="w">
+            </span><span class="nl">&quot;med_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Verapamil&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;medistr_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Contraindicated in patients of severe hypertension&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;medistr_snomed_ct&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;372754009&quot;</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verapamil"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"medistr_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not be taken by patients having congestive cardiac failure"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"medistr_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"372754008"</span><span class="w">
+            </span><span class="nl">&quot;med_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Verapamil&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;medistr_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Not be taken by patients having congestive cardiac failure&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;medistr_snomed_ct&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;372754008&quot;</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-6'>Request</h3>
-
 <table><thead>
 <tr>
 <th>Category</th>
@@ -6389,11 +6227,9 @@ Or the requested data is not found in the database.</p>
 <td>https://api.parchaa.com/api/cdss/getAllData</td>
 </tr>
 </tbody></table>
-
 <h3 id='request-parameters-in-body-6'>Request Parameters in Body</h3>
-
 <p>Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
-In case of any error, please contact Parchaa.</p>
+In case of any error, please contact Parchaa.</p></p>
 
 <table><thead>
 <tr>
@@ -6432,11 +6268,6 @@ In case of any error, please contact Parchaa.</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>------</td>
-<td>----</td>
-<td>------------</td>
-</tr>
 <tr>
 <td>message</td>
 <td>String</td>
