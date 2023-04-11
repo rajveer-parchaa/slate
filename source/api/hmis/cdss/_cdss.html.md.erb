@@ -1,7 +1,36 @@
 # CDSS APIs
 
+This section deals with the APIs associated with the Parchaa CDSS. In paticular, the below APIs are designed to get the following data from the Parchaa CDSS database.
+
+1. Investigations
+2. Medications
+3. Vital Signs
+4. Lifestyle Recommendations
+5. Medication Instructions
+
+Parchaa stores all the above data corresponding to a particular chief complaint and diagnosis in its database. By using the below APIs, the client can retrieve the above data as required.
+For all the below APIs, the request object is of same form as shown.
+
+```javascript
+{
+    cc:{
+        cc_name: String, //Name of the chief complaint as present in the Parchaa Database
+        cc_snomed_ct: String //Snomed CT code of the chief complaint as present in the Parchaa Database
+    }
+    diag:{
+        diag_name: String, //Name of the diagnosis as present in the Parchaa Database
+        diag_snomed_ct: String //Snomed CT code of the diagnosis as present in the Parchaa Database
+    }
+}
+
+```
+Note:
+1. All the fields in the request object are required. If any of the above fields is not present, the request will be rejected.
+2. The given diagnosis with diag_snomed_ct must be a valid diagnosis for the given chief complaint with cc_snomed_ct. If not, the request will be rejected.
+
 ## getInvestigations
 
+The API getInvestigations will return all the investigation recommendations for a given diagnosis that are present in the Parchaa CDSS database. Please follow the above guidelines for sending the request object.
 
 ```javascript
 var axios = require('axios');
@@ -104,7 +133,7 @@ In case of any error, please contact Parchaa.
 |error|String| Bad Request |
 
 One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
-Or the requested data is not found in the database.
+Or the requested data is not found in the Parcha CDSS database.
 
 ####Status Code: 500
 |Field |Type| Description|
@@ -115,6 +144,7 @@ Or the requested data is not found in the database.
 If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.
 
 ## getMedications
+The API getMedications will return all the medication recommendations for a given diagnosis that are present in the Parchaa CDSS database. Please follow the above guidelines for sending the request object.
 
 
 ```javascript
@@ -204,7 +234,6 @@ In case of any error, please contact Parchaa.
 ####Status Code:  202  OK
 |Field |Type| Description|
 |------|----|------------|
-|------|----|------------|
 | message | String | Success message |
 | medications | Array | Array of medications |
 | med_name | String | Name of the medicine |
@@ -230,6 +259,7 @@ Or the requested data is not found in the database.
 If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.
 
 ## getVitalSigns
+The API getVitalSigns will return all the vital sign recommendations for a given diagnosis that are present in the Parchaa CDSS database. Please follow the above guidelines for sending the request object.
 
 
 ```javascript
@@ -319,7 +349,6 @@ In case of any error, please contact Parchaa.
 ####Status Code:  202  OK
 |Field |Type| Description|
 |------|----|------------|
-|------|----|------------|
 | message | String | Success message |
 | vitalSigns | Array | Array of vital signs |
 | vital_name | String | Name of the vital sign |
@@ -345,6 +374,7 @@ Or the requested data is not found in the database.
 If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.
 
 ## getLifestyleRecommendations
+The API getLifestyleRecommendations will return all the lifestyle recommendations for a given diagnosis that are present in the Parchaa CDSS database. Please follow the above guidelines for sending the request object.
 
 
 ```javascript
@@ -434,7 +464,6 @@ In case of any error, please contact Parchaa.
 ####Status Code:  202  OK
 |Field |Type| Description|
 |------|----|------------|
-|------|----|------------|
 | message | String | Success message |
 | lifestyleRecommendations | Array | Array of lifestyle recommendations |
 | lifestyle_name | String | Name of the lifestyle recommendation |
@@ -460,6 +489,7 @@ Or the requested data is not found in the database.
 If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.
 
 ## getMedicationInstructions
+The API getMedicationInstructions will return all the medication instruction recommendations for a given diagnosis that are present in the Parchaa CDSS database. Please follow the above guidelines for sending the request object.
 
 
 ```javascript
@@ -561,7 +591,6 @@ In case of any error, please contact Parchaa.
 ####Status Code:  202  OK
 |Field |Type| Description|
 |------|----|------------|
-|------|----|------------|
 | message | String | Success message |
 | instructions | Array | array of medication instructions |
 | med_name | String | name of the medicine |
@@ -588,6 +617,7 @@ Or the requested data is not found in the database.
 If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.
 
 ## getAllData
+The API getAllData will return all the recommendations (investigations, medications, vital signs, medication instructions, lifestyle recommendations) for a given diagnosis that are present in the Parchaa CDSS database. Please follow the above guidelines for sending the request object.
 
 
 ```javascript
@@ -728,7 +758,6 @@ In case of any error, please contact Parchaa.
 
 ####Status Code:  202  OK
 |Field |Type| Description|
-|------|----|------------|
 |------|----|------------|
 | message | String | Success message |
 | investigations | Array | Array of instructions |
