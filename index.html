@@ -443,6 +443,29 @@
               </ul>
           </li>
           <li>
+            <a href="#cdss-apis" class="toc-h1 toc-link" data-title="CDSS APIs">CDSS APIs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#getinvestigations" class="toc-h2 toc-link" data-title="getInvestigations">getInvestigations</a>
+                  </li>
+                  <li>
+                    <a href="#getmedications" class="toc-h2 toc-link" data-title="getMedications">getMedications</a>
+                  </li>
+                  <li>
+                    <a href="#getvitalsigns" class="toc-h2 toc-link" data-title="getVitalSigns">getVitalSigns</a>
+                  </li>
+                  <li>
+                    <a href="#getlifestylerecommendations" class="toc-h2 toc-link" data-title="getLifestyleRecommendations">getLifestyleRecommendations</a>
+                  </li>
+                  <li>
+                    <a href="#getmedicationinstructions" class="toc-h2 toc-link" data-title="getMedicationInstructions">getMedicationInstructions</a>
+                  </li>
+                  <li>
+                    <a href="#getalldata" class="toc-h2 toc-link" data-title="getAllData">getAllData</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
               <ul class="toc-list-h2">
                   <li>
@@ -5207,8 +5230,8 @@ Can be a combination of any custom scopes associated with an app client.
 
 <p>No parameters are required for this request</p>
 
-<p><h3 id='response-parameters-6'>Response Parameters</h3><h4 id='status-code-202-ok-6'>Status Code:  202  OK</h4>
-<p>This request will return the array of user object and the user object is defined below</p></p>
+<h3 id='response-parameters-6'>Response Parameters</h3><h4 id='status-code-202-ok-6'>Status Code:  202  OK</h4>
+<p>This request will return the array of user object and the user object is defined below</p>
 
 <p>USER object</p>
 
@@ -5290,6 +5313,1261 @@ Can be a combination of any custom scopes associated with an app client.
 <td>1</td>
 </tr>
 </tbody></table>
+
+
+<h1 id='cdss-apis'>CDSS APIs</h1><h2 id='getinvestigations'>getInvestigations</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="dl">"</span><span class="s2">cc</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">cc_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Headache</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cc_snomed_ct</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">25064002</span><span class="dl">"</span>      
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">diag</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">diag_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cluster Headache</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">diag_snomed_ct</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">193031009</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.parchaa.com/api/cdss/getInvestigations</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
+<span class="p">};</span>
+
+<span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>curl --location --request GET 'https://api.parchaa.com/api/cdss/getInvestigations' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "cc":{
+      "cc_name":"Headache",
+      "cc_snomed_ct":"25064002"      
+  },
+  "diag":{
+      "diag_name":"Cluster Headache",
+      "diag_snomed_ct":"193031009"
+  }
+}'
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Investigations retrieved successfully"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"investigations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"inv_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"312474003"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"inv_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blood Electrolyte levels"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"inv_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"396205005"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"inv_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CT brain"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='request'>Request</h3>
+
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Http request</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>URL</td>
+<td>https://api.parchaa.com/api/cdss/getInvestigations</td>
+</tr>
+</tbody></table>
+
+<h3 id='request-parameters-in-body'>Request Parameters in Body</h3>
+
+<p>Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
+In case of any error, please contact Parchaa.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>cc_name</td>
+<td>String</td>
+<td>Chief Complaint Name</td>
+</tr>
+<tr>
+<td>cc_snomed_ct</td>
+<td>String</td>
+<td>Chief Complaint Snomed Ct code</td>
+</tr>
+<tr>
+<td>diag_name</td>
+<td>String</td>
+<td>Diagnosis Name</td>
+</tr>
+<tr>
+<td>diag_snomed_ct</td>
+<td>String</td>
+<td>Diagnosis Snomed Ct code</td>
+</tr>
+</tbody></table>
+
+<h3 id='response-parameters'>Response Parameters</h3><h4 id='status-code-202-ok'>Status Code:  202  OK</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>Success message</td>
+</tr>
+<tr>
+<td>investigations</td>
+<td>Array</td>
+<td>Array of instructions</td>
+</tr>
+<tr>
+<td>inv_name</td>
+<td>String</td>
+<td>Name of the investigation</td>
+</tr>
+<tr>
+<td>inv_snomed_ct</td>
+<td>String</td>
+<td>Snomed Ct code of the investigation</td>
+</tr>
+</tbody></table>
+<h4 id='errors'>Errors</h4><h4 id='status-code-400-bad-request'>Status Code:  400  Bad Request</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>Integer</td>
+<td>400</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Bad Request</td>
+</tr>
+</tbody></table>
+
+<p>One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
+Or the requested data is not found in the database.</p>
+<h4 id='status-code-500'>Status Code: 500</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>Integer</td>
+<td>500</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Internal server error</td>
+</tr>
+</tbody></table>
+
+<p>If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.</p>
+<h2 id='getmedications'>getMedications</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="dl">"</span><span class="s2">cc</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">cc_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Headache</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cc_snomed_ct</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">25064002</span><span class="dl">"</span>      
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">diag</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">diag_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cluster Headache</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">diag_snomed_ct</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">193031009</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.parchaa.com/api/cdss/getMedications</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
+<span class="p">};</span>
+
+<span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>curl --location --request GET 'https://api.parchaa.com/api/cdss/getMedications' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "cc":{
+      "cc_name":"Headache",
+      "cc_snomed_ct":"25064002"      
+  },
+  "diag":{
+      "diag_name":"Cluster Headache",
+      "diag_snomed_ct":"193031009"
+  }
+}'
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medications retrived successfully"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"medications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"med_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"395892000"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sumatriptan"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"med_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"372754009"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verapamil"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='request-2'>Request</h3>
+
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Http request</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>URL</td>
+<td>https://api.parchaa.com/api/cdss/getMedications</td>
+</tr>
+</tbody></table>
+
+<h3 id='request-parameters-in-body-2'>Request Parameters in Body</h3>
+
+<p>Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
+In case of any error, please contact Parchaa.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>cc_name</td>
+<td>String</td>
+<td>Chief Complaint Name</td>
+</tr>
+<tr>
+<td>cc_snomed_ct</td>
+<td>String</td>
+<td>Chief Complaint Snomed Ct code</td>
+</tr>
+<tr>
+<td>diag_name</td>
+<td>String</td>
+<td>Diagnosis Name</td>
+</tr>
+<tr>
+<td>diag_snomed_ct</td>
+<td>String</td>
+<td>Diagnosis Snomed Ct code</td>
+</tr>
+</tbody></table>
+
+<h3 id='response-parameters-2'>Response Parameters</h3><h4 id='status-code-202-ok-2'>Status Code:  202  OK</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>------</td>
+<td>----</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>Success message</td>
+</tr>
+<tr>
+<td>medications</td>
+<td>Array</td>
+<td>Array of medications</td>
+</tr>
+<tr>
+<td>med_name</td>
+<td>String</td>
+<td>Name of the medicine</td>
+</tr>
+<tr>
+<td>med_snomed_ct</td>
+<td>String</td>
+<td>Snomed Ct code of the medicine</td>
+</tr>
+</tbody></table>
+<h4 id='errors-2'>Errors</h4><h4 id='status-code-400-bad-request-2'>Status Code:  400  Bad Request</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>Integer</td>
+<td>400</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Bad Request</td>
+</tr>
+</tbody></table>
+
+<p>One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
+Or the requested data is not found in the database.</p>
+<h4 id='status-code-500-2'>Status Code: 500</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>Integer</td>
+<td>500</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Internal server error</td>
+</tr>
+</tbody></table>
+
+<p>If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.</p>
+<h2 id='getvitalsigns'>getVitalSigns</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="dl">"</span><span class="s2">cc</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">cc_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Headache</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cc_snomed_ct</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">25064002</span><span class="dl">"</span>      
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">diag</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">diag_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cluster Headache</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">diag_snomed_ct</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">193031009</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.parchaa.com/api/cdss/getVitalSigns</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
+<span class="p">};</span>
+
+<span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>curl --location --request GET 'https://api.parchaa.com/api/cdss/getVitalSigns' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "cc":{
+      "cc_name":"Headache",
+      "cc_snomed_ct":"25064002"      
+  },
+  "diag":{
+      "diag_name":"Cluster Headache",
+      "diag_snomed_ct":"193031009"
+  }
+}'
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vital Signs retrived successfully"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vitalSigns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"vital_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"78564009"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"vital_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pulse rate"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"vital_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"252465000"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"vital_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pulse oximetry"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='request-3'>Request</h3>
+
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Http request</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>URL</td>
+<td>https://api.parchaa.com/api/cdss/getVitalSigns</td>
+</tr>
+</tbody></table>
+
+<h3 id='request-parameters-in-body-3'>Request Parameters in Body</h3>
+
+<p>Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
+In case of any error, please contact Parchaa.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>cc_name</td>
+<td>String</td>
+<td>Chief Complaint Name</td>
+</tr>
+<tr>
+<td>cc_snomed_ct</td>
+<td>String</td>
+<td>Chief Complaint Snomed Ct code</td>
+</tr>
+<tr>
+<td>diag_name</td>
+<td>String</td>
+<td>Diagnosis Name</td>
+</tr>
+<tr>
+<td>diag_snomed_ct</td>
+<td>String</td>
+<td>Diagnosis Snomed Ct code</td>
+</tr>
+</tbody></table>
+
+<h3 id='response-parameters-3'>Response Parameters</h3><h4 id='status-code-202-ok-3'>Status Code:  202  OK</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>------</td>
+<td>----</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>Success message</td>
+</tr>
+<tr>
+<td>vitalSigns</td>
+<td>Array</td>
+<td>Array of vital signs</td>
+</tr>
+<tr>
+<td>vital_name</td>
+<td>String</td>
+<td>Name of the vital sign</td>
+</tr>
+<tr>
+<td>vital_snomed_ct</td>
+<td>String</td>
+<td>Snomed Ct code of the vital sign</td>
+</tr>
+</tbody></table>
+<h4 id='errors-3'>Errors</h4><h4 id='status-code-400-bad-request-3'>Status Code:  400  Bad Request</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>Integer</td>
+<td>400</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Bad Request</td>
+</tr>
+</tbody></table>
+
+<p>One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
+Or the requested data is not found in the database.</p>
+<h4 id='status-code-500-3'>Status Code: 500</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>Integer</td>
+<td>500</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Internal server error</td>
+</tr>
+</tbody></table>
+
+<p>If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.</p>
+<h2 id='getlifestylerecommendations'>getLifestyleRecommendations</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="dl">"</span><span class="s2">cc</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">cc_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Headache</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cc_snomed_ct</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">25064002</span><span class="dl">"</span>      
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">diag</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">diag_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cluster Headache</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">diag_snomed_ct</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">193031009</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.parchaa.com/api/cdss/getLifestyleRecommendations</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
+<span class="p">};</span>
+
+<span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>curl --location --request GET 'https://api.parchaa.com/api/cdss/getLifestyleRecommendations' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "cc":{
+      "cc_name":"Headache",
+      "cc_snomed_ct":"25064002"      
+  },
+  "diag":{
+      "diag_name":"Cluster Headache",
+      "diag_snomed_ct":"193031009"
+  }
+}'
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lifestyle Recommendations retrived successfully"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lifestyleRecommendations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"lifestyle_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lifestyle_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Drink 4 to 5 glasses of water everyday."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"lifestyle_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1235"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lifestyle_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In case your pain increases, take pain relief medications."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='request-4'>Request</h3>
+
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Http request</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>URL</td>
+<td>https://api.parchaa.com/api/cdss/getLifestyleRecommendations</td>
+</tr>
+</tbody></table>
+
+<h3 id='request-parameters-in-body-4'>Request Parameters in Body</h3>
+
+<p>Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
+In case of any error, please contact Parchaa.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>cc_name</td>
+<td>String</td>
+<td>Chief Complaint Name</td>
+</tr>
+<tr>
+<td>cc_snomed_ct</td>
+<td>String</td>
+<td>Chief Complaint Snomed Ct code</td>
+</tr>
+<tr>
+<td>diag_name</td>
+<td>String</td>
+<td>Diagnosis Name</td>
+</tr>
+<tr>
+<td>diag_snomed_ct</td>
+<td>String</td>
+<td>Diagnosis Snomed Ct code</td>
+</tr>
+</tbody></table>
+
+<h3 id='response-parameters-4'>Response Parameters</h3><h4 id='status-code-202-ok-4'>Status Code:  202  OK</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>------</td>
+<td>----</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>Success message</td>
+</tr>
+<tr>
+<td>lifestyleRecommendations</td>
+<td>Array</td>
+<td>Array of lifestyle recommendations</td>
+</tr>
+<tr>
+<td>lifestyle_name</td>
+<td>String</td>
+<td>Name of the lifestyle recommendation</td>
+</tr>
+<tr>
+<td>lifestyle_snomed_ct</td>
+<td>String</td>
+<td>Snomed Ct code of the lifestyle recommendation</td>
+</tr>
+</tbody></table>
+<h4 id='errors-4'>Errors</h4><h4 id='status-code-400-bad-request-4'>Status Code:  400  Bad Request</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>Integer</td>
+<td>400</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Bad Request</td>
+</tr>
+</tbody></table>
+
+<p>One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
+Or the requested data is not found in the database.</p>
+<h4 id='status-code-500-4'>Status Code: 500</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>Integer</td>
+<td>500</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Internal server error</td>
+</tr>
+</tbody></table>
+
+<p>If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.</p>
+<h2 id='getmedicationinstructions'>getMedicationInstructions</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="dl">"</span><span class="s2">cc</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">cc_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Headache</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cc_snomed_ct</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">25064002</span><span class="dl">"</span>      
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">diag</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">diag_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cluster Headache</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">diag_snomed_ct</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">193031009</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.parchaa.com/api/cdss/getMedicationInstructions</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
+<span class="p">};</span>
+
+<span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>curl --location --request GET 'https://api.parchaa.com/api/cdss/getMedicationInstructions' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "cc":{
+      "cc_name":"Headache",
+      "cc_snomed_ct":"25064002"      
+  },
+  "diag":{
+      "diag_name":"Cluster Headache",
+      "diag_snomed_ct":"193031009"
+  }
+}'
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medication Instructions retrived successfully"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sumatriptan"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contraindicated in the presence of CAD and cerebrovascular disease, brainstem aura and hemiplegic migraine"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"395892000"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sumatriptan"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not to be taken by patients having uncontrolled hypertension."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"395892001"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verapamil"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contraindicated in patients of severe hypertension"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"372754009"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verapamil"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not be taken by patients having congestive cardiac failure"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"372754008"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='request-5'>Request</h3>
+
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Http request</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>URL</td>
+<td>https://api.parchaa.com/api/cdss/getMedicationInstructions</td>
+</tr>
+</tbody></table>
+
+<h3 id='request-parameters-in-body-5'>Request Parameters in Body</h3>
+
+<p>Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
+In case of any error, please contact Parchaa.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>cc_name</td>
+<td>String</td>
+<td>Chief Complaint Name</td>
+</tr>
+<tr>
+<td>cc_snomed_ct</td>
+<td>String</td>
+<td>Chief Complaint Snomed Ct code</td>
+</tr>
+<tr>
+<td>diag_name</td>
+<td>String</td>
+<td>Diagnosis Name</td>
+</tr>
+<tr>
+<td>diag_snomed_ct</td>
+<td>String</td>
+<td>Diagnosis Snomed Ct code</td>
+</tr>
+</tbody></table>
+
+<h3 id='response-parameters-5'>Response Parameters</h3><h4 id='status-code-202-ok-5'>Status Code:  202  OK</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>------</td>
+<td>----</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>Success message</td>
+</tr>
+<tr>
+<td>instructions</td>
+<td>Array</td>
+<td>array of medication instructions</td>
+</tr>
+<tr>
+<td>med_name</td>
+<td>String</td>
+<td>name of the medicine</td>
+</tr>
+<tr>
+<td>medistr_name</td>
+<td>String</td>
+<td>Name of the medication instruction for the given medicine</td>
+</tr>
+<tr>
+<td>medistr_snomed_ct</td>
+<td>String</td>
+<td>Snomed Ct code of the lmedication instruction for the given medicine</td>
+</tr>
+</tbody></table>
+<h4 id='errors-5'>Errors</h4><h4 id='status-code-400-bad-request-5'>Status Code:  400  Bad Request</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>Integer</td>
+<td>400</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Bad Request</td>
+</tr>
+</tbody></table>
+
+<p>One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
+Or the requested data is not found in the database.</p>
+<h4 id='status-code-500-5'>Status Code: 500</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>Integer</td>
+<td>500</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Internal server error</td>
+</tr>
+</tbody></table>
+
+<p>If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.</p>
+<h2 id='getalldata'>getAllData</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="dl">"</span><span class="s2">cc</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">cc_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Headache</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cc_snomed_ct</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">25064002</span><span class="dl">"</span>      
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">diag</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">diag_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cluster Headache</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">diag_snomed_ct</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">193031009</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.parchaa.com/api/cdss/getAllData</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
+<span class="p">};</span>
+
+<span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>curl --location --request GET 'https://api.parchaa.com/api/cdss/getAllData' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "cc":{
+      "cc_name":"Headache",
+      "cc_snomed_ct":"25064002"      
+  },
+  "diag":{
+      "diag_name":"Cluster Headache",
+      "diag_snomed_ct":"193031009"
+  }
+}'
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All data retrieved successfully"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"investigations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"inv_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"312474003"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"inv_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blood Electrolyte levels"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"inv_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"396205005"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"inv_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CT brain"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"medications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"med_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"395892000"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sumatriptan"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"med_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"372754009"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verapamil"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"vitalSigns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"vital_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"78564009"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"vital_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pulse rate"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"vital_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"252465000"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"vital_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pulse oximetry"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"lifestyleRecommendations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"lifestyle_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lifestyle_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Drink 4 to 5 glasses of water everyday."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"lifestyle_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1235"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lifestyle_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In case your pain increases, take pain relief medications."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sumatriptan"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contraindicated in the presence of CAD and cerebrovascular disease, brainstem aura and hemiplegic migraine"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"395892000"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sumatriptan"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not to be taken by patients having uncontrolled hypertension."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"395892001"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verapamil"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contraindicated in patients of severe hypertension"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"372754009"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"med_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Verapamil"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not be taken by patients having congestive cardiac failure"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"medistr_snomed_ct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"372754008"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='request-6'>Request</h3>
+
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Http request</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>URL</td>
+<td>https://api.parchaa.com/api/cdss/getAllData</td>
+</tr>
+</tbody></table>
+
+<h3 id='request-parameters-in-body-6'>Request Parameters in Body</h3>
+
+<p>Request body will be of JSON type. Please make sure that the provided cc_name, cc_snomed_ct, diag_name, diag_snomed_ct are all valid.
+In case of any error, please contact Parchaa.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>cc_name</td>
+<td>String</td>
+<td>Chief Complaint Name</td>
+</tr>
+<tr>
+<td>cc_snomed_ct</td>
+<td>String</td>
+<td>Chief Complaint Snomed Ct code</td>
+</tr>
+<tr>
+<td>diag_name</td>
+<td>String</td>
+<td>Diagnosis Name</td>
+</tr>
+<tr>
+<td>diag_snomed_ct</td>
+<td>String</td>
+<td>Diagnosis Snomed Ct code</td>
+</tr>
+</tbody></table>
+
+<p><h3 id='response-parameters-6'>Response Parameters</h3><h4 id='status-code-202-ok-6'>Status Code:  202  OK</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>------</td>
+<td>----</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>Success message</td>
+</tr>
+<tr>
+<td>investigations</td>
+<td>Array</td>
+<td>Array of instructions</td>
+</tr>
+<tr>
+<td>inv_name</td>
+<td>String</td>
+<td>Name of the investigation</td>
+</tr>
+<tr>
+<td>inv_snomed_ct</td>
+<td>String</td>
+<td>Snomed Ct code of the investigation</td>
+</tr>
+<tr>
+<td>medications</td>
+<td>Array</td>
+<td>Array of medications</td>
+</tr>
+<tr>
+<td>med_name</td>
+<td>String</td>
+<td>Name of the medicine</td>
+</tr>
+<tr>
+<td>med_snomed_ct</td>
+<td>String</td>
+<td>Snomed Ct code of the medicine</td>
+</tr>
+<tr>
+<td>vitalSigns</td>
+<td>Array</td>
+<td>Array of vital signs</td>
+</tr>
+<tr>
+<td>vital_name</td>
+<td>String</td>
+<td>Name of the vital sign</td>
+</tr>
+<tr>
+<td>vital_snomed_ct</td>
+<td>String</td>
+<td>Snomed Ct code of the vital sign</td>
+</tr>
+<tr>
+<td>lifestyleRecommendations</td>
+<td>Array</td>
+<td>Array of lifestyle recommendations</td>
+</tr>
+<tr>
+<td>lifestyle_name</td>
+<td>String</td>
+<td>Name of the lifestyle recommendation</td>
+</tr>
+<tr>
+<td>lifestyle_snomed_ct</td>
+<td>String</td>
+<td>Snomed Ct code of the lifestyle recommendation</td>
+</tr>
+<tr>
+<td>instructions</td>
+<td>Array</td>
+<td>array of medication instructions</td>
+</tr>
+<tr>
+<td>med_name</td>
+<td>String</td>
+<td>name of the medicine</td>
+</tr>
+<tr>
+<td>medistr_name</td>
+<td>String</td>
+<td>Name of the medication instruction for the given medicine</td>
+</tr>
+<tr>
+<td>medistr_snomed_ct</td>
+<td>String</td>
+<td>Snomed Ct code of the lmedication instruction for the given medicine</td>
+</tr>
+</tbody></table>
+<h4 id='errors-6'>Errors</h4><h4 id='status-code-400-bad-request-6'>Status Code:  400  Bad Request</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>Integer</td>
+<td>400</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Bad Request</td>
+</tr>
+</tbody></table></p>
+
+<p>One of the provided cc_name,cc_snomed_ct,diag_name,diag_snomed_ct are wrong or the cc_name does not correspond with cc_snomed_ct or the diag_name does not correspond with diag_snomed_ct.
+Or the requested data is not found in the database.</p>
+
+<h4 id='status-code-500-6'>Status Code: 500</h4>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>statusCode</td>
+<td>Integer</td>
+<td>500</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Internal server error</td>
+</tr>
+</tbody></table>
+
+<p>If this is the case, then there is an issue with the Parchaa servers. Please contact Parchaa immediately.</p>
 
 <p><h1 id='errors'>Errors</h1><h2 id='common-error-39-s'>common Error&#39;s</h2><h4 id='status-code-400-bad-request'>Status Code:  400  Bad Request</h4>
 <table><thead>
